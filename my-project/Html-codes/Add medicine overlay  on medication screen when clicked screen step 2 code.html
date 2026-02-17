@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthPal - Add New Medication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#07b6d5",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2023",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-10 py-3">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-6">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">HealthPal</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-xl h-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-3 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-xl h-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 px-3 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary" data-alt="User profile avatar of a healthcare professional" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCly0a5zdiJdJ1xO8bnidyWdpohGohz2YnMbmG6Nv807tvFaHYW7fmV8yYtp00Ej5bj4BBKzo4K1qJa3BZNhzlRSsb0RFWgqY1RGWlcJqsIGyjaG4NOZvkQSBPVJoLPgy2wIq5BDqLXzZvYZLMa24ohJt6d7whgQyeX8juqfd4q6NAC0Lp5uKz6jPfq0CITMc-Bp8K4IafDVCvKs_bC4eIS83KxKEawb4Ffm-vzWyK4Mqykj7EXloQK_PujnX-4fEAma_4Ck-TREow");'></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4">
+<div class="layout-content-container flex flex-col max-w-[640px] flex-1 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<!-- Progress Header -->
+<div class="px-8 pt-8 pb-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider">Step 2 of 2</h3>
+<span class="text-primary font-bold text-sm">SET SCHEDULE</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full">
+<div class="bg-primary h-2 rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<div class="px-8 pt-4 pb-2">
+<h1 class="text-slate-900 dark:text-white text-2xl font-bold">Dosing Schedule</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-1">When do you take this medication?</p>
+</div>
+<!-- Dose List -->
+<div class="px-8 py-4 flex flex-col gap-4">
+<!-- Dose 1 -->
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0 size-12">
+<span class="material-symbols-outlined">wb_sunny</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white text-base font-semibold">Morning Dose</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm italic">Dose 1</p>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<input class="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm font-medium focus:ring-primary focus:border-primary" type="time" value="08:00"/>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Dose 2 -->
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg border border-slate-100 dark:border-slate-800">
+<div class="flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400 shrink-0 size-12">
+<span class="material-symbols-outlined">bedtime</span>
+</div>
+<div class="flex-1">
+<p class="text-slate-900 dark:text-white text-base font-semibold">Night Dose</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm italic">Dose 2</p>
+</div>
+<div class="shrink-0 flex items-center gap-3">
+<input class="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 rounded px-3 py-1.5 text-sm font-medium focus:ring-primary focus:border-primary" type="time" value="21:00"/>
+<button class="text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm py-2 px-1 hover:underline transition-all">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                            Add Another Dose
+                        </button>
+</div>
+<!-- Preferences Section -->
+<div class="px-8 py-6 border-t border-slate-100 dark:border-slate-800">
+<h4 class="text-slate-900 dark:text-white font-bold mb-4">Preferences</h4>
+<div class="space-y-4">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-800 dark:text-slate-200">Push Notifications</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Receive alerts when it's time to take your dose</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-800 dark:text-slate-200">Refill Reminders</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Get notified when you have 5 doses remaining</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Summary Card -->
+<div class="mx-8 mb-8 p-4 bg-primary/5 border border-primary/20 rounded-lg">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary text-xl">info</span>
+<h4 class="text-sm font-bold text-primary uppercase tracking-wide">Summary</h4>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] uppercase text-slate-400 font-bold">Medication</p>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Lisinopril (Zestril)</p>
+</div>
+<div>
+<p class="text-[10px] uppercase text-slate-400 font-bold">Dosage</p>
+<p class="text-sm font-semibold text-slate-700 dark:text-slate-300">10mg Tablet</p>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="mt-auto flex items-center justify-between gap-4 p-8 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+<button class="flex-1 flex items-center justify-center rounded-xl h-12 px-6 border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-sm font-bold hover:bg-white dark:hover:bg-slate-800 transition-all">
+                            Back
+                        </button>
+<button class="flex-[2] flex items-center justify-center rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+                            Add Medication
+                        </button>
+</div>
+</div>
+</main>
+<!-- Quick Access sidebar for context -->
+<div class="fixed right-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4">
+<div class="p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 w-64">
+<h5 class="font-bold text-slate-900 dark:text-white mb-2 text-sm">Need Help?</h5>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-3">Scheduling helps ensure maximum efficacy of your treatment. If you're unsure, check the pharmacy label or consult your doctor.</p>
+<a class="text-primary text-xs font-bold flex items-center gap-1 hover:underline" href="#">
+                        View Guidelines
+                        <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HealthPal - Your Health, Simplified</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#05b7d6",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2023",
+                        "navy-dark": "#0a1618",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "heading": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.75rem", // 12px as requested
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(5, 183, 214, 0.1), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(5, 183, 214, 0.05), transparent 40%);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Sticky Navigation -->
+<header class="sticky top-0 z-50 glass-nav border-b border-slate-200 dark:border-slate-800 transition-colors">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined !text-2xl">health_and_safety</span>
+</div>
+<span class="font-heading font-bold text-2xl tracking-tight text-navy-dark dark:text-white">HealthPal</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Features</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">How It Works</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Personas</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Privacy</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Log In</a>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-sm shadow-primary/20">
+                    Get Started Free
+                </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative hero-gradient pt-20 pb-24 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full w-fit border border-primary/20">
+<span class="material-symbols-outlined !text-sm">verified</span>
+<span class="text-xs font-bold uppercase tracking-wider">Trusted by 50,000+ patients</span>
+</div>
+<h1 class="font-heading text-5xl lg:text-7xl font-bold leading-[1.1] text-navy-dark dark:text-white">
+                    Your Health, <br/><span class="text-primary">Simplified.</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
+                    The all-in-one platform for telemedicine, secure health records, and smart medication management. Professional clinical care at your fingertips.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all shadow-lg shadow-primary/30 flex items-center gap-2">
+                        Start Your Profile <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary/50 text-slate-700 dark:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">play_circle</span> Watch Demo
+                    </button>
+</div>
+<!-- Trust Badges -->
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-6 opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">shield_lock</span>
+<span class="text-xs font-bold uppercase">HIPAA Compliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">medical_information</span>
+<span class="text-xs font-bold uppercase">Certified MDs</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">encrypted</span>
+<span class="text-xs font-bold uppercase">End-to-End Encryption</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-xs font-bold uppercase">24/7 Support</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="relative z-10 rounded-2xl border-4 border-white dark:border-slate-700 shadow-2xl overflow-hidden transform lg:rotate-2 transition-transform hover:rotate-0 duration-500">
+<div class="bg-slate-100 dark:bg-slate-900 aspect-[4/3] w-full" data-alt="Dashboard interface showing health metrics and appointments" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPXMbvxeYHPH8kPpQ2fDrG0L8BkZEaspsL_6Wez68z4jam-bW1r_u-74S_5FIDys1KSdvlCLAOAuFQ7AseG7-N7PBCuZ6UHEInMisnF1H53hwJlyaOo2KEBrfVdM4l0k-y1wQwjzNDAq7f9IVOMR6p7O73n8N1gzAyjXS7CVfDJizMB8dQSUStIYH3jH8j7ppHpH_6FURZ-wssE7FOe_NT5HRUzaqqY1RmWrWB3wGDYFJOiZK-SYkiqP3QSDSDsSQtNKRIrWbOS-Q'); background-size: cover;"></div>
+</div>
+<!-- Decorative elements -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -left-10 w-60 h-60 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 -right-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl flex items-center gap-4 border border-slate-100 dark:border-slate-700 z-20">
+<div class="bg-green-100 text-green-600 p-2 rounded-lg">
+<span class="material-symbols-outlined">video_call</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase">Upcoming Visit</p>
+<p class="text-sm font-bold">Dr. Sarah Johnson, 10:00 AM</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-24 bg-white dark:bg-navy-dark transition-colors">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-heading text-4xl font-bold mb-6">Built for Modern Healthcare</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg">Every feature you need to manage your medical journey effectively, securely, and with total peace of mind.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="p-8 rounded-lg bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
+<div class="size-14 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-3xl">videocam</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Virtual Visits</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Consult with top-tier specialists from the comfort of your home. High-definition video with low latency for clear communication.</p>
+<a class="text-primary font-bold inline-flex items-center gap-2 group/link" href="#">
+                        Learn more <span class="material-symbols-outlined !text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="p-8 rounded-lg bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
+<div class="size-14 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-3xl">clinical_notes</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Health Records</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Access your entire medical history in one secure dashboard. Effortlessly upload and share labs, imaging, and vaccine cards.</p>
+<a class="text-primary font-bold inline-flex items-center gap-2 group/link" href="#">
+                        Learn more <span class="material-symbols-outlined !text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="p-8 rounded-lg bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group">
+<div class="size-14 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined !text-3xl">medication</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Medication Management</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Never miss a dose with automated reminders, interaction alerts, and one-tap pharmacy refill tracking.</p>
+<a class="text-primary font-bold inline-flex items-center gap-2 group/link" href="#">
+                        Learn more <span class="material-symbols-outlined !text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Timeline -->
+<section class="py-24 bg-background-light dark:bg-background-dark/50">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="font-heading text-4xl font-bold mb-20 text-center">Seamless Health in 4 Steps</h2>
+<div class="relative flex flex-col md:flex-row gap-8 justify-between">
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700 -translate-y-1/2 hidden md:block z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-[240px] mx-auto">
+<div class="size-16 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-primary/30 mb-6">1</div>
+<h4 class="font-bold mb-2">Create Account</h4>
+<p class="text-sm text-slate-500">Securely verify your identity and medical history profile.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-[240px] mx-auto">
+<div class="size-16 rounded-full bg-white dark:bg-slate-800 border-2 border-primary text-primary flex items-center justify-center font-bold text-xl mb-6">2</div>
+<h4 class="font-bold mb-2">Connect Care</h4>
+<p class="text-sm text-slate-500">Sync your health data or choose a doctor for a visit.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-[240px] mx-auto">
+<div class="size-16 rounded-full bg-white dark:bg-slate-800 border-2 border-primary text-primary flex items-center justify-center font-bold text-xl mb-6">3</div>
+<h4 class="font-bold mb-2">Get Managed</h4>
+<p class="text-sm text-slate-500">Set medication schedules and health monitoring alerts.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center text-center max-w-[240px] mx-auto">
+<div class="size-16 rounded-full bg-white dark:bg-slate-800 border-2 border-primary text-primary flex items-center justify-center font-bold text-xl mb-6">4</div>
+<h4 class="font-bold mb-2">Thrive Daily</h4>
+<p class="text-sm text-slate-500">Live with peace of mind knowing your health is tracked.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Personas Section -->
+<section class="py-24 bg-white dark:bg-navy-dark">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="font-heading text-4xl font-bold mb-16 text-center">Designed for Everyone</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Professional -->
+<div class="flex flex-col rounded-lg overflow-hidden border border-slate-100 dark:border-slate-800 shadow-lg">
+<div class="h-48 bg-slate-200" data-alt="Professional working on laptop in bright office" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJmlYd9dONZish4HLWqgEusCbVuhpJS3ZJNl6ct5fNPQpoOI0bIyASVSv53561hO1Tl6xUi03pUipFeDDMrxtuGtMkdyGoMxefOOJyM39IcTRFeVahDODESG6WMM0oZpAODXV3thE2hAH500888I0lOgTgi5W0p1mjOpr9tVq4_PqG9EFokrIZpobGSZmP_PocC6vbp_7gRDItzwektMhUJfECbF_PmMKIW2B7X9ApDtB9eo5d2zeaAId8CWXLG80q2m9r2d6uJm8'); background-size: cover;"></div>
+<div class="p-8">
+<h4 class="text-xl font-bold mb-2">Busy Professionals</h4>
+<p class="text-slate-600 dark:text-slate-400 mb-6 text-sm">Efficiency is key. Manage appointments and prescriptions during a coffee break. Total coordination, zero friction.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-primary !text-lg">check_circle</span> 15-min virtual consults
+                            </li>
+<li class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-primary !text-lg">check_circle</span> Quick prescription refills
+                            </li>
+</ul>
+</div>
+</div>
+<!-- Seniors -->
+<div class="flex flex-col rounded-lg overflow-hidden border border-slate-100 dark:border-slate-800 shadow-lg scale-105 bg-white dark:bg-slate-800 z-10">
+<div class="h-48 bg-slate-200" data-alt="Active senior smiling while using tablet" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7RzcOzTa0CX6bWZ3c9OasttLNt8t50vY5iQaAqvUexhZTPXy0-_RtO0g-2bChuqqVmmdZ5Mp19kN83TVQ0O-8wd0RN8UrjZKHRqfFxWCQcdy8MHhX4weBpT49Te9_LSoRod2CmCf8Z8ETeWYr87k2G3nUR-GfnIvMLhxlG61N_yP0ffqDaCie0QWVWFrf5bBM20YUgh0Z21J3JfYEpCHIIKMWojlYG7yq_3cZ4ZG7ad0sQRp5eDiHrwgnKV_JZYZcpmIYB4YYuCg'); background-size: cover;"></div>
+<div class="p-8">
+<h4 class="text-xl font-bold mb-2">Independent Seniors</h4>
+<p class="text-slate-600 dark:text-slate-400 mb-6 text-sm">Large fonts and easy navigation. Manage chronic conditions with ease and stay connected to your medical team 24/7.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-primary !text-lg">check_circle</span> One-touch emergency alert
+                            </li>
+<li class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-primary !text-lg">check_circle</span> Audio-guided medication
+                            </li>
+</ul>
+</div>
+</div>
+<!-- Caregivers -->
+<div class="flex flex-col rounded-lg overflow-hidden border border-slate-100 dark:border-slate-800 shadow-lg">
+<div class="h-48 bg-slate-200" data-alt="Caregiver helping patient with medical documentation" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1xRlNUQ0kKfQ_MbMjZoXL4hYKOaGnQAojWobRkTpiAanbHDr0Nx_5KANqly9JXtvXAmZInkEGPRKKO5k8qdPHbY1hscXMmR93mVhTuMbRN-oNxh3GeACZvSrFK8cn97lOEID7h0_RlhK4ExDLi0f2ewFPrKcl07Q2rhM047YVaJimO_SWJvEYEZtJc6xmkDjmMpslsntMxNSWkIzSN_H7R9GXkuLdeBroULCAoJ_5esIdVrZutm1rKCRJomQqJZcvnwh6GT2Eqwk'); background-size: cover;"></div>
+<div class="p-8">
+<h4 class="text-xl font-bold mb-2">Active Caregivers</h4>
+<p class="text-slate-600 dark:text-slate-400 mb-6 text-sm">Keep everyone on the same page. Monitor loved ones' adherence and health trends from your own device.</p>
+<ul class="space-y-2 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-primary !text-lg">check_circle</span> Multi-profile management
+                            </li>
+<li class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-primary !text-lg">check_circle</span> Real-time dose alerts
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-background-light dark:bg-background-dark/50 overflow-hidden">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="font-heading text-4xl font-bold mb-16 text-center">Loved by Patients</h2>
+<div class="flex gap-8 overflow-x-auto pb-8 snap-x no-scrollbar">
+<!-- Testimonial 1 -->
+<div class="min-w-[400px] bg-white dark:bg-slate-800 p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 snap-center">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 italic mb-6">"HealthPal has completely changed how I manage my diabetes. The medication reminders are a life-saver, literally."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-200" data-alt="Profile photo of satisfied female user" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArEHyQpIhrlsRTzl5UtFmP7n2OnIxXFXGFhe1tWSvpYnj9uAl2LVMAsFCE_DuWpytdzuyMFxvPACD_InfMTIW2Qd7vID_XuoMdcOc3e6KpYnZY8GEWQMH4_zTn3KTijUEVUwu-24WS4Lszjy47hXxQe5GoYzDpZDUE5nctxKV4Hy6mXsTHtiWryXsgCtJ-PfXnmoAJvz9kJeyaPmEOysYxbowpq3gnS8tpHzk3RtpAcyljP2trMGn8p0WmGSRa9DYeBcOj33Qdy2E'); background-size: cover;"></div>
+<div>
+<p class="font-bold">Emily R.</p>
+<p class="text-xs text-slate-500">User for 2 years</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-[400px] bg-white dark:bg-slate-800 p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 snap-center">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 italic mb-6">"As a caregiver for my father, having all his labs and appointments in one place has reduced our stress by half."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-200" data-alt="Profile photo of smiling man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfokui49y-WZX-CojVSy_8vTdo10pOCljZBMY94YesbGQs3t2LOxNo7rG3_9Z0Ou44SUP6hc7RjGBkHxCN2V3vy5q4cbDrz39B9O3g42OOjnoOfpzsrmv0tW5RirPHRXjT1rtqKQ1ajzkXHy6C1c_Wx-DwD_SS-3i1A4bw3LhkVyKsGysAKc6OkC1MsJ7X5hB7xvXPuzqMw1N-nh-y5e9mMfK0yPNTd2XIgrSD7dc5-E3609Ay42wr9FnmbzjeOE0_bMsNrsrGByU'); background-size: cover;"></div>
+<div>
+<p class="font-bold">David M.</p>
+<p class="text-xs text-slate-500">Family Caregiver</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="min-w-[400px] bg-white dark:bg-slate-800 p-8 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 snap-center">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+<span class="material-symbols-outlined !fill-1">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 italic mb-6">"Virtual visits are so easy. I didn't have to leave my house and the doctor was incredibly thorough."</p>
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-slate-200" data-alt="Profile photo of professional woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDI4hBCeIZk-BlhoBQrqtFJrAfXLn3cg7OUNBWImFpS2t3Aro7BGzX8SnwZ4x8dlco28vYESN0TFJv4FCC7AzJTqyz9gDHClcWUkxTMh-ESr2bqJSFDz5sJ3A6eTLstvQPYu0D_EwqgwvWur86WsZ4GLXsIEvP_jOg7A7l7nIR5gE0osKHsko0rgIsRJoeH_ReJoRnS-P22mwiEN_aKzyFiFyMTvb1x36RjD2hk8J3f8DiumD4L_Bq5fACSGgvx__4STAL0eBepTtI'); background-size: cover;"></div>
+<div>
+<p class="font-bold">Sarah T.</p>
+<p class="text-xs text-slate-500">Remote Patient</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy Section -->
+<section class="py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-primary/5 dark:bg-primary/10 rounded-lg p-12 lg:p-16 border border-primary/10 flex flex-col lg:flex-row items-center gap-12">
+<div class="flex-1">
+<div class="size-16 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined !text-4xl">admin_panel_settings</span>
+</div>
+<h2 class="font-heading text-4xl font-bold mb-6">Your Privacy is Our Priority</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg mb-8">We utilize military-grade encryption and strict HIPAA-compliant protocols. Your data is yours alone — we never sell patient information to third parties.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span class="font-bold">256-bit AES Encryption</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">lock_reset</span>
+<span class="font-bold">Biometric Authentication</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">policy</span>
+<span class="font-bold">Strict Audit Logging</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">visibility_off</span>
+<span class="font-bold">Zero-Knowledge Storage</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/3">
+<div class="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined !text-9xl">shield</span>
+</div>
+<h4 class="font-bold mb-4 relative z-10 text-primary">Privacy Score</h4>
+<div class="text-5xl font-black mb-2 relative z-10">100/100</div>
+<p class="text-sm text-slate-500 relative z-10">Rated A+ for data protection and medical compliance by SecurityAudit Labs.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-navy-dark opacity-40"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10 text-center text-white">
+<h2 class="font-heading text-5xl font-bold mb-8">Ready to Take Control?</h2>
+<p class="text-xl mb-12 opacity-90 max-w-2xl mx-auto">Join thousands of patients who have simplified their healthcare journey with HealthPal.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-10 py-5 rounded-lg font-bold text-xl hover:bg-slate-50 transition-all shadow-xl">
+                    Get Started Free
+                </button>
+<button class="bg-transparent border-2 border-white/40 hover:border-white text-white px-10 py-5 rounded-lg font-bold text-xl transition-all">
+                    Talk to Sales
+                </button>
+</div>
+<p class="mt-8 text-sm opacity-70">No credit card required for 14-day premium trial.</p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-navy-dark text-slate-400 py-20 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined !text-xl">health_and_safety</span>
+</div>
+<span class="font-heading font-bold text-xl tracking-tight text-white">HealthPal</span>
+</div>
+<p class="text-sm leading-relaxed">Simplifying healthcare for everyone, everywhere. Technology that cares for your wellness.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">chat</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Product</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Telemedicine</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Med Records</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Drug Tracking</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Lab Results</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Company</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Our Doctors</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Support</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">HIPAA Status</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 pt-12 mt-12 border-t border-slate-800 text-xs flex flex-col md:flex-row justify-between gap-6">
+<p>© 2024 HealthPal Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Security</a>
+<a class="hover:text-white transition-colors" href="#">Cookies</a>
+<a class="hover:text-white transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+</body></html>

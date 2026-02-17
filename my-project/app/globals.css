@@ -1,0 +1,230 @@
+@import "tailwindcss";
+/* stylelint-disable at-rule-no-unknown */
+/* CSS Language Server: ignore unknown at-rules */
+
+:root {
+  --background: #f5f8f8;
+  --foreground: #111718;
+  --primary: #05b7d6;
+  --secondary: #3B82F6;
+  --navy-dark: #0a1618;
+  --background-dark: #0f2023;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-navy-dark: var(--navy-dark);
+  --color-background-light: #f5f8f8;
+  --color-background-dark: #0f2023;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter);
+  --font-heading: var(--font-poppins);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f2023;
+    --foreground: #f5f8f8;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.glass-nav {
+  @apply bg-white/90 backdrop-blur-md dark:bg-navy-dark/90;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(5, 183, 214, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 15px rgba(5, 183, 214, 0.8));
+  }
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes medical-scan {
+  0% {
+    transform: translateY(-150%);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(350%);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 25s linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit 40s linear infinite;
+}
+
+@keyframes cycle-text {
+
+  0%,
+  20% {
+    content: "INITIALIZING_SCAN...";
+  }
+
+  25%,
+  45% {
+    content: "ANALYZING_BIOMARKERS...";
+  }
+
+  50%,
+  70% {
+    content: "VERIFYING_NEURAL_PATHWAY...";
+  }
+
+  75%,
+  95% {
+    content: "HSYNC_COMPLETE_100%";
+  }
+
+  100% {
+    content: "INITIALIZING_SCAN...";
+  }
+}
+
+.animate-medical-scan {
+  animation: medical-scan 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.scanning-text::after {
+  content: "INITIALIZING_SCAN...";
+  animation: cycle-text 8s step-end infinite;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1;
+}

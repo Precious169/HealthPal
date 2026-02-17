@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Medication - HealthPal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#07b6d5",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2023",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "heading": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-display { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<!-- Blurred Dashboard Background Container -->
+<div class="fixed inset-0 overflow-hidden filter blur-sm grayscale-[0.2] opacity-60">
+<div class="layout-container flex h-full flex-col">
+<header class="flex items-center justify-between px-10 py-4 border-b border-gray-200 bg-white">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+<h2 class="text-xl font-bold leading-tight font-heading">HealthPal</h2>
+</div>
+<div class="flex items-center gap-9 text-gray-500 font-medium text-sm">
+<span>Dashboard</span>
+<span>Medications</span>
+<span>Reports</span>
+</div>
+</div>
+</header>
+<main class="p-10">
+<div class="grid grid-cols-3 gap-6">
+<div class="h-32 bg-white rounded-lg shadow-sm"></div>
+<div class="h-32 bg-white rounded-lg shadow-sm"></div>
+<div class="h-32 bg-white rounded-lg shadow-sm"></div>
+<div class="col-span-2 h-96 bg-white rounded-lg shadow-sm"></div>
+<div class="h-96 bg-white rounded-lg shadow-sm"></div>
+</div>
+</main>
+</div>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-[2px] p-4">
+<!-- Modal Content (16px/1rem rounded corners) -->
+<div class="bg-white dark:bg-gray-900 w-full max-w-[640px] rounded-lg shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+<!-- Progress Header -->
+<div class="px-8 pt-8 pb-4">
+<div class="flex items-center justify-between mb-2">
+<h1 class="text-2xl font-heading font-bold text-gray-900 dark:text-white">Add New Medication</h1>
+<button class="text-gray-400 hover:text-gray-600 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<p class="text-sm font-medium text-gray-500 mb-4">Step 1 of 3: Medication Details</p>
+<div class="h-1.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-500" style="width: 33.33%;"></div>
+</div>
+</div>
+<!-- Form Content -->
+<div class="px-8 py-4 overflow-y-auto max-h-[70vh]">
+<form class="space-y-6">
+<!-- Search Bar -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Search for medication name</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary text-gray-900 dark:text-white transition-all outline-none" placeholder="e.g., Lisinopril, Metformin" type="text"/>
+</div>
+<p class="text-xs text-gray-500 italic">Common results: Lisinopril 10mg, Metformin 500mg...</p>
+</div>
+<!-- Row 1: Dosage & Form -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Dosage</label>
+<div class="flex">
+<input class="w-full rounded-l-lg border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-primary focus:border-primary text-gray-900 dark:text-white" placeholder="e.g., 50" type="text"/>
+<select class="bg-gray-100 dark:bg-gray-700 border-l-0 border-gray-200 dark:border-gray-700 rounded-r-lg text-sm font-medium focus:ring-0">
+<option>mg</option>
+<option>ml</option>
+<option>mcg</option>
+<option>units</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Form</label>
+<select class="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg py-2.5 focus:ring-primary focus:border-primary text-gray-900 dark:text-white">
+<option disabled="" selected="" value="">Select form</option>
+<option>Tablet</option>
+<option>Capsule</option>
+<option>Liquid</option>
+<option>Injection</option>
+<option>Inhaler</option>
+</select>
+</div>
+</div>
+<!-- Row 2: Frequency -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Frequency</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-2 px-3 text-sm font-medium rounded-lg border border-primary bg-primary/10 text-primary" type="button">Daily</button>
+<button class="py-2 px-3 text-sm font-medium rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-primary/50 transition-colors" type="button">As needed</button>
+<button class="py-2 px-3 text-sm font-medium rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-primary/50 transition-colors" type="button">Specific days</button>
+</div>
+</div>
+<!-- Prescription Upload -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-gray-700 dark:text-gray-300">Upload a photo of your prescription (Optional)</label>
+<div class="border-2 border-dashed border-primary/30 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors p-8 text-center cursor-pointer group">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-primary shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<div class="mt-2">
+<p class="text-sm font-semibold text-primary">Click to upload or drag and drop</p>
+<p class="text-xs text-gray-500 mt-1">PNG, JPG or PDF up to 10MB</p>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- Modal Footer -->
+<div class="px-8 py-6 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50/50 dark:bg-gray-800/50">
+<button class="px-6 py-2.5 text-sm font-semibold text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
+                    Cancel
+                </button>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-2.5 rounded-lg font-semibold text-sm shadow-lg shadow-primary/20 flex items-center gap-2 transition-all active:scale-95">
+                    Next: Schedule
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
