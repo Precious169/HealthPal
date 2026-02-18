@@ -43,7 +43,10 @@ export default function Dashboard() {
         <div className="flex h-screen bg-slate-900 overflow-hidden">
             <Sidebar />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader />
+                <AppHeader
+                    title={`Welcome back, ${user?.name || 'Precious'}!`}
+                    subtitle="Here's what's happening with your health today."
+                />
                 <main className="flex-1 overflow-y-auto p-8 relative scroll-smooth">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -52,14 +55,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="max-w-7xl mx-auto relative z-10">
-                        {/* Header with Logout */}
-                        <div className="flex justify-between items-start mb-10">
-                            <div>
-                                <h1 className="text-4xl font-bold font-heading tracking-tight text-white">
-                                    Welcome back, {user?.name || 'there'}!
-                                </h1>
-                                <p className="text-slate-400 mt-2">Here&apos;s what&apos;s happening with your health today.</p>
-                            </div>
+                        <div className="flex justify-end items-start mb-6">
                             <button
                                 onClick={handleLogout}
                                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all text-sm font-bold"

@@ -36,7 +36,9 @@ export default function LoginPage() {
         // Simulate API call
         setTimeout(() => {
             if (validateLogin(email, password)) {
-                // Save user to session storage
+                // Clear any existing session data first to ensure clean state
+                sessionStorage.clear();
+
                 // Initialize sample data for demo experience
                 initializeSampleData(true);
 

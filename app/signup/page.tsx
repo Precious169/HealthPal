@@ -65,8 +65,10 @@ export default function SignupPage() {
 
     const handleSubmit = () => {
         setIsLoading(true);
-
         setTimeout(() => {
+            // Clear any existing session data first to ensure clean state
+            sessionStorage.clear();
+
             // Save user data
             saveUser({
                 name,
