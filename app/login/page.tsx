@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FormInput } from '@/components/auth/FormInput';
 import { saveUser, validateLogin } from '@/lib/auth';
+import { initializeSampleData } from '@/lib/healthData';
 
 export default function LoginPage() {
     const router = useRouter();
