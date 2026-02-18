@@ -43,10 +43,7 @@ export default function Dashboard() {
         <div className="flex h-screen bg-slate-900 overflow-hidden">
             <Sidebar />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader
-                    title={`Welcome back, ${user?.name || 'there'}!`}
-                    subtitle="Here's what's happening with your health today."
-                />
+                <AppHeader />
                 <main className="flex-1 overflow-y-auto p-8 relative scroll-smooth">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
