@@ -97,10 +97,10 @@ export default function Dashboard() {
 
                                 {/* Vital Signs Grid */}
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                    <VitalCard label="Heart Rate" value="72" unit="bpm" icon="favorite" color="text-red-500" />
-                                    <VitalCard label="Blood Pressure" value="120/80" unit="mmHg" icon="blood_pressure" color="text-cyan-400" />
-                                    <VitalCard label="Sleep" value="7.5" unit="hrs" icon="bedtime" color="text-indigo-500" />
-                                    <VitalCard label="Steps" value="8,432" unit="steps" icon="directions_walk" color="text-emerald-500" />
+                                    <VitalCard label="Heart Rate" value={user?.isDemo ? "72" : "--"} unit="bpm" icon="favorite" color="text-red-500" />
+                                    <VitalCard label="Blood Pressure" value={user?.isDemo ? "120/80" : "--"} unit="mmHg" icon="blood_pressure" color="text-cyan-400" />
+                                    <VitalCard label="Sleep" value={user?.isDemo ? "7.5" : "0"} unit="hrs" icon="bedtime" color="text-indigo-500" />
+                                    <VitalCard label="Steps" value={user?.isDemo ? "8,432" : "0"} unit="steps" icon="directions_walk" color="text-emerald-500" />
                                 </div>
 
                                 {/* Health Records Preview */}
@@ -110,9 +110,18 @@ export default function Dashboard() {
                                         <Link href="/records" className="text-cyan-400 text-sm font-bold hover:underline">View All</Link>
                                     </div>
                                     <div className="space-y-4">
-                                        <RecordItem title="CBC Blood Panel" date="Sep 28, 2023" type="Lab Results" status="Normal" color="bg-emerald-500" />
-                                        <RecordItem title="Annual Physical" date="Aug 15, 2023" type="Visit Summary" status="Verified" color="bg-cyan-400" />
-                                        <RecordItem title="Chest X-Ray" date="July 02, 2023" type="Imaging" status="Pending Review" color="bg-amber-500" />
+                                        {user?.isDemo ? (
+                                            <>
+                                                <RecordItem title="CBC Blood Panel" date="Sep 28, 2023" type="Lab Results" status="Normal" color="bg-emerald-500" />
+                                                <RecordItem title="Annual Physical" date="Aug 15, 2023" type="Visit Summary" status="Verified" color="bg-cyan-400" />
+                                                <RecordItem title="Chest X-Ray" date="July 02, 2023" type="Imaging" status="Pending Review" color="bg-amber-500" />
+                                            </>
+                                        ) : (
+                                            <div className="py-10 text-center">
+                                                <span className="material-symbols-outlined text-slate-600 !text-4xl mb-2">folder_open</span>
+                                                <p className="text-slate-500 text-sm italic">No records uploaded yet.</p>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -126,18 +135,24 @@ export default function Dashboard() {
                                         <Link href="/medication" className="text-cyan-400 text-sm font-bold hover:underline">Manage</Link>
                                     </div>
                                     <div className="space-y-6">
-                                        <div className="flex items-center gap-4">
-                                            <div className="size-12 bg-white/5 rounded-lg flex items-center justify-center text-slate-400">
-                                                <span className="material-symbols-outlined !text-xl">pill</span>
+                                        {user?.isDemo ? (
+                                            <div className="flex items-center gap-4">
+                                                <div className="size-12 bg-white/5 rounded-lg flex items-center justify-center text-slate-400">
+                                                    <span className="material-symbols-outlined !text-xl">pill</span>
+                                                </div>
+                                                <div className="flex-1">
+                                                    <p className="text-sm font-bold text-white">Lisinopril 10mg</p>
+                                                    <p className="text-xs text-slate-500">Morning • Remaining: 12 days</p>
+                                                </div>
+                                                <button className="bg-emerald-500/10 text-emerald-500 size-8 rounded-lg flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all">
+                                                    <span className="material-symbols-outlined !text-lg font-bold">check</span>
+                                                </button>
                                             </div>
-                                            <div className="flex-1">
-                                                <p className="text-sm font-bold text-white">Lisinopril 10mg</p>
-                                                <p className="text-xs text-slate-500">Morning • Remaining: 12 days</p>
+                                        ) : (
+                                            <div className="py-4 text-center">
+                                                <p className="text-slate-500 text-xs italic">No active medications.</p>
                                             </div>
-                                            <button className="bg-emerald-500/10 text-emerald-500 size-8 rounded-lg flex items-center justify-center hover:bg-emerald-500 hover:text-white transition-all">
-                                                <span className="material-symbols-outlined !text-lg font-bold">check</span>
-                                            </button>
-                                        </div>
+                                        )}
                                     </div>
                                     <button className="w-full mt-6 py-3 border-2 border-dashed border-white/10 rounded-xl text-slate-400 text-sm font-bold hover:border-cyan-500/50 hover:text-cyan-400 transition-all">
                                         + Add Medication

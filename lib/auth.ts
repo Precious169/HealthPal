@@ -24,6 +24,7 @@ export interface User {
     healthProfile?: HealthProfile;
     onboarding?: OnboardingData;
     createdAt: string;
+    isDemo?: boolean;
 }
 
 const USER_KEY = 'healthpal_user';
@@ -42,6 +43,7 @@ export function saveUser(userData: Partial<User>): void {
         healthProfile: userData.healthProfile || existingUser?.healthProfile,
         onboarding: userData.onboarding || existingUser?.onboarding || { completed: false },
         createdAt: existingUser?.createdAt || new Date().toISOString(),
+        isDemo: userData.isDemo ?? existingUser?.isDemo ?? false,
     };
 
     sessionStorage.setItem(USER_KEY, JSON.stringify(user));

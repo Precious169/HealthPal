@@ -179,8 +179,10 @@ export function saveContactSubmission(
 }
 
 // Initialize with sample data if empty
-export function initializeSampleData(): void {
+export function initializeSampleData(force: boolean = false): void {
     if (typeof window === 'undefined') return;
+
+    if (!force) return;
 
     // Sample appointments
     if (getAppointments().length === 0) {

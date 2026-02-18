@@ -223,10 +223,10 @@ export default function RecordsPage() {
                                     onChange={(e) => setNewRecord({ ...newRecord, type: e.target.value as MedicalRecord['type'] })}
                                     className="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20"
                                 >
-                                    <option value="lab">Lab Results</option>
-                                    <option value="imaging">Imaging</option>
-                                    <option value="visit">Visit Summary</option>
-                                    <option value="prescription">Prescription</option>
+                                    <option value="lab" className="bg-slate-900 text-white">Lab Results</option>
+                                    <option value="imaging" className="bg-slate-900 text-white">Imaging</option>
+                                    <option value="visit" className="bg-slate-900 text-white">Visit Summary</option>
+                                    <option value="prescription" className="bg-slate-900 text-white">Prescription</option>
                                 </select>
                             </div>
 

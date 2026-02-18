@@ -46,20 +46,20 @@ export default function AddMedicationModal({ isOpen, onClose }: { isOpen: boolea
                                     <div className="flex shadow-sm rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
                                         <input className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border-none focus:ring-0 text-slate-900 dark:text-white" placeholder="50" />
                                         <select className="bg-slate-100 dark:bg-slate-700 border-none text-sm font-bold focus:ring-0 px-4">
-                                            <option>mg</option>
-                                            <option>ml</option>
-                                            <option>mcg</option>
-                                            <option>units</option>
+                                            <option className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">mg</option>
+                                            <option className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">ml</option>
+                                            <option className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">mcg</option>
+                                            <option className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">units</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-bold text-slate-700 dark:text-slate-300">Form</label>
                                     <select defaultValue="" className="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-xl py-3 focus:ring-primary focus:border-primary text-slate-900 dark:text-white font-medium text-sm">
-                                        <option value="" disabled>Select form</option>
-                                        <option value="Tablet">Tablet</option>
-                                        <option value="Capsule">Capsule</option>
-                                        <option value="Liquid">Liquid</option>
+                                        <option value="" disabled className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Select form</option>
+                                        <option value="Tablet" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Tablet</option>
+                                        <option value="Capsule" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Capsule</option>
+                                        <option value="Liquid" className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">Liquid</option>
                                     </select>
                                 </div>
                             </div>

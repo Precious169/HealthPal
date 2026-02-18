@@ -16,8 +16,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Initialize sample data on first load
-    initializeSampleData();
+    // Session-based app logic
   }, []);
 
   const handleSalesSubmit = (e: React.FormEvent) => {

@@ -72,6 +72,7 @@ export default function SignupPage() {
                 name,
                 email,
                 onboarding: { completed: false },
+                isDemo: false,
             });
 
             // Save health profile

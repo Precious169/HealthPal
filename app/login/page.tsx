@@ -37,10 +37,14 @@ export default function LoginPage() {
         setTimeout(() => {
             if (validateLogin(email, password)) {
                 // Save user to session storage
+                // Initialize sample data for demo experience
+                initializeSampleData(true);
+
                 saveUser({
                     email,
                     name: email.split('@')[0], // Use email prefix as name
                     onboarding: { completed: true }, // Assume returning users completed onboarding
+                    isDemo: true,
                 });
 
                 // Redirect to dashboard
