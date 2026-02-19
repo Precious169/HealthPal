@@ -70,25 +70,41 @@ export default function Dashboard() {
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                             {/* Left Column (Main Stats) */}
                             <div className="lg:col-span-2 space-y-8">
-                                {/* Upcoming Consultation */}
-                                <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-2xl p-6 flex items-center justify-between shadow-sm">
-                                    <div className="flex items-center gap-5">
-                                        <div className="size-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-cyan-400 shadow-sm">
-                                            <span className="material-symbols-outlined !text-3xl">videocam</span>
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-lg text-white">Upcoming Consultation</h3>
-                                            <p className="text-slate-400">Dr. Sarah Johnson • Cardiology</p>
-                                            <div className="flex items-center gap-3 mt-1 text-sm font-semibold text-cyan-400">
-                                                <span className="material-symbols-outlined !text-sm">calendar_today</span>
-                                                Today, 10:00 AM
+                                {user?.isDemo ? (
+                                    <div className="bg-cyan-500/5 border border-cyan-500/20 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                                        <div className="flex items-center gap-5">
+                                            <div className="size-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-cyan-400 shadow-sm">
+                                                <span className="material-symbols-outlined !text-3xl">videocam</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-lg text-white">Upcoming Consultation</h3>
+                                                <p className="text-slate-400">Dr. Sarah Johnson • Cardiology</p>
+                                                <div className="flex items-center gap-3 mt-1 text-sm font-semibold text-cyan-400">
+                                                    <span className="material-symbols-outlined !text-sm">calendar_today</span>
+                                                    Today, 10:00 AM
+                                                </div>
                                             </div>
                                         </div>
+                                        <Link href="/telemedicine" className="bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-cyan-500/20 hover:brightness-105 transition-all">
+                                            Join Call
+                                        </Link>
                                     </div>
-                                    <Link href="/telemedicine" className="bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2.5 rounded-lg font-bold text-sm shadow-lg shadow-cyan-500/20 hover:brightness-105 transition-all">
-                                        Join Call
-                                    </Link>
-                                </div>
+                                ) : (
+                                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                                        <div className="flex items-center gap-5">
+                                            <div className="size-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-slate-500 shadow-sm">
+                                                <span className="material-symbols-outlined !text-3xl">videocam_off</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-lg text-white">No Upcoming Consultations</h3>
+                                                <p className="text-slate-500">Stay on top of your health journey.</p>
+                                            </div>
+                                        </div>
+                                        <Link href="/telemedicine" className="bg-white/10 text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-white/20 transition-all border border-white/10">
+                                            Book Now
+                                        </Link>
+                                    </div>
+                                )}
 
                                 {/* Vital Signs Grid */}
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -154,25 +170,35 @@ export default function Dashboard() {
                                     </button>
                                 </div>
 
-                                {/* Treatment Progress */}
-                                <div className="bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl p-6 text-white shadow-lg shadow-cyan-500/20">
-                                    <h3 className="font-bold text-lg mb-4">Treatment Progress</h3>
-                                    <div className="relative pt-1">
-                                        <div className="flex mb-2 items-center justify-between">
-                                            <div>
-                                                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-white/20">Post-Op Recovery</span>
+                                {user?.isDemo ? (
+                                    <div className="bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl p-6 text-white shadow-lg shadow-cyan-500/20">
+                                        <h3 className="font-bold text-lg mb-4">Treatment Progress</h3>
+                                        <div className="relative pt-1">
+                                            <div className="flex mb-2 items-center justify-between">
+                                                <div>
+                                                    <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full bg-white/20">Post-Op Recovery</span>
+                                                </div>
+                                                <div className="text-right">
+                                                    <span className="text-xs font-semibold inline-block">65%</span>
+                                                </div>
                                             </div>
-                                            <div className="text-right">
-                                                <span className="text-xs font-semibold inline-block">65%</span>
+                                            <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-white/20">
+                                                <div style={{ width: "65%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-white"></div>
                                             </div>
                                         </div>
-                                        <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-white/20">
-                                            <div style={{ width: "65%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-white"></div>
-                                        </div>
+                                        <p className="text-sm opacity-80 leading-relaxed">You&apos;re doing great! Complete 3 more physical therapy sessions this week.</p>
+                                        <Link href="/treatment" className="inline-block mt-4 text-sm font-bold hover:underline">View Roadmap →</Link>
                                     </div>
-                                    <p className="text-sm opacity-80 leading-relaxed">You&apos;re doing great! Complete 3 more physical therapy sessions this week.</p>
-                                    <Link href="/treatment" className="inline-block mt-4 text-sm font-bold hover:underline">View Roadmap →</Link>
-                                </div>
+                                ) : (
+                                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 text-white/60 shadow-sm">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <span className="material-symbols-outlined text-slate-500">monitoring</span>
+                                            <h3 className="font-bold text-lg text-white">Treatment Plans</h3>
+                                        </div>
+                                        <p className="text-sm italic leading-relaxed">No active treatment plans found. Consult with our experts to create your roadmap.</p>
+                                        <Link href="/treatment" className="inline-block mt-4 text-sm font-bold text-cyan-400 hover:underline">Explore Plans →</Link>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
