@@ -15,6 +15,7 @@ import { getRecords, saveRecord, deleteRecord, type MedicalRecord } from '@/lib/
 export default function RecordsPage() {
     const router = useRouter();
     const [user, setUser] = useState(getUser());
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [records, setRecords] = useState<MedicalRecord[]>([]);
     const [isAddingRecord, setIsAddingRecord] = useState(false);
     const [filter, setFilter] = useState<'all' | MedicalRecord['type']>('all');
@@ -88,9 +89,9 @@ export default function RecordsPage() {
 
     return (
         <div className="flex h-screen bg-slate-900 overflow-hidden">
-            <Sidebar />
+            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader />
+                <AppHeader onMenuClick={() => setIsSidebarOpen(true)} />
                 <main className="flex-1 overflow-y-auto p-6 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">

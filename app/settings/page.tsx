@@ -7,6 +7,7 @@ import { getUser } from "@/lib/auth";
 
 export default function SettingsPage() {
     const [user, setUser] = useState(getUser());
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     if (!user) {
         return (
@@ -18,9 +19,9 @@ export default function SettingsPage() {
 
     return (
         <div className="flex h-screen bg-slate-900 overflow-hidden">
-            <Sidebar />
+            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader />
+                <AppHeader onMenuClick={() => setIsSidebarOpen(true)} />
                 <main className="flex-1 overflow-y-auto p-8 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">

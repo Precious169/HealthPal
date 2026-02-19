@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface FormInputProps {
     label: string;
     type?: string;
@@ -19,6 +21,7 @@ export function FormInput({
     icon,
     required = false,
 }: FormInputProps) {
+    const [showPassword, setShowPassword] = useState(false);
     return (
         <div className="space-y-2">
             <label className="block text-sm font-semibold text-white/90">
@@ -31,14 +34,25 @@ export function FormInput({
                     </span>
                 )}
                 <input
-                    type={type}
+                    type={type === 'password' && showPassword ? 'text' : type}
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                     placeholder={placeholder}
-                    className={`w-full ${icon ? 'pl-12' : 'pl-4'} pr-4 py-3.5 rounded-xl bg-white/10 backdrop-blur-md border ${error ? 'border-red-400/50' : 'border-white/20'
+                    className={`w-full ${icon ? 'pl-12' : 'pl-4'} pr-12 py-3.5 rounded-xl bg-white/10 backdrop-blur-md border ${error ? 'border-red-400/50' : 'border-white/20'
                         } text-white placeholder:text-white/40 focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-400/20 transition-all`}
                     required={required}
                 />
+                {type === 'password' && (
+                    <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white transition-colors"
+                    >
+                        <span className="material-symbols-outlined !text-xl">
+                            {showPassword ? 'visibility_off' : 'visibility'}
+                        </span>
+                    </button>
+                )}
             </div>
             {error && (
                 <p className="text-sm text-red-400 flex items-center gap-1">

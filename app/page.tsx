@@ -14,6 +14,7 @@ export default function Home() {
   const [showSalesModal, setShowSalesModal] = useState(false);
   const [salesForm, setSalesForm] = useState({ name: '', email: '', company: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Session-based app logic
@@ -60,11 +61,35 @@ export default function Home() {
 
           <div className="flex items-center gap-4">
             <Link href="/login" className="hidden sm:block text-sm font-bold text-white/70 hover:text-white transition-colors">Log In</Link>
-            <Link href="/signup" className="bg-gradient-to-r from-cyan-400 to-blue-600 hover:shadow-lg hover:shadow-cyan-500/30 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all active:scale-95">
+            <Link href="/signup" className="hidden xs:block bg-gradient-to-r from-cyan-400 to-blue-600 hover:shadow-lg hover:shadow-cyan-500/30 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all active:scale-95">
               Get Started
             </Link>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            >
+              <span className="material-symbols-outlined !text-3xl">
+                {isMenuOpen ? 'close' : 'menu'}
+              </span>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-20 w-full bg-[#0a192f] border-b border-white/10 p-6 space-y-4 animate-in slide-in-from-top duration-300">
+            <a href="#features" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold text-white/70">Features</a>
+            <Link href="/doctors" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold text-white/70">Our Doctors</Link>
+            <Link href="/about" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold text-white/70">About</Link>
+            <Link href="/help" onClick={() => setIsMenuOpen(false)} className="block text-lg font-semibold text-white/70">Help Center</Link>
+            <div className="pt-4 flex flex-col gap-4">
+              <Link href="/login" onClick={() => setIsMenuOpen(false)} className="text-center font-bold text-white/70">Log In</Link>
+              <Link href="/signup" onClick={() => setIsMenuOpen(false)} className="bg-gradient-to-r from-cyan-400 to-blue-600 text-white py-3 rounded-xl font-bold text-center">
+                Get Started
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
@@ -101,7 +126,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-[500px] lg:h-[600px] flex items-center justify-center animate-in fade-in zoom-in duration-1000 delay-300">
+            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center animate-in fade-in zoom-in duration-1000 delay-300 order-first lg:order-last">
               <div className="relative w-full h-full max-w-2xl flex items-center justify-center">
                 {/* Secondary Strand - Reverse Rotation */}
                 <img
@@ -203,14 +228,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <GlassCard className="p-12 md:p-24 text-center relative overflow-hidden border-white/20 ring-1 ring-white/10 shadow-[0_0_50px_rgba(6,182,212,0.15)] group">
             {/* Kinetic Background Animation */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
               {/* Scanning Laser Line */}
               <div className="absolute inset-0 opacity-30">
-                <div className="w-full h-8 bg-gradient-to-b from-transparent via-cyan-400/40 to-transparent shadow-[0_0_20px_rgba(34,211,238,0.2)] animate-medical-scan"></div>
+                <div className="w-full h-full bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent shadow-[0_0_40px_rgba(34,211,238,0.2)] animate-medical-scan !bg-[length:100%_10%] bg-no-repeat"></div>
               </div>
 
               {/* Floating Medical Cards */}
-              <div className="absolute top-[20%] left-[10%] animate-float" style={{ animationDelay: '0s' }}>
+              <div className="absolute top-[15%] left-[5%] md:left-[10%] animate-float opacity-40 md:opacity-100" style={{ animationDelay: '0s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[-5deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-cyan-400 !text-sm">monitoring</span>
@@ -219,7 +244,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[25%] left-[15%] animate-float" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute bottom-[20%] left-[10%] md:left-[15%] animate-float opacity-40 md:opacity-100" style={{ animationDelay: '1.5s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[3deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-emerald-400 !text-sm">verified_user</span>
@@ -228,7 +253,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute top-[30%] right-[10%] animate-float" style={{ animationDelay: '0.8s' }}>
+              <div className="absolute top-[25%] right-[5%] md:right-[10%] animate-float opacity-40 md:opacity-100" style={{ animationDelay: '0.8s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[5deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-purple-400 !text-sm">biotech</span>
@@ -237,7 +262,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[20%] right-[15%] animate-float" style={{ animationDelay: '2.2s' }}>
+              <div className="absolute bottom-[15%] right-[10%] md:right-[15%] animate-float opacity-40 md:opacity-100" style={{ animationDelay: '2.2s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[-2deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-blue-400 !text-sm">settings_input_antenna</span>
@@ -256,15 +281,15 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/signup" className="px-12 py-5 rounded-2xl bg-cyan-500 text-white font-black text-xl hover:bg-cyan-400 transition-all shadow-xl shadow-cyan-500/20 active:scale-95">
-                  Join Now - It's Free
+                <Link href="/signup" className="px-12 py-5 rounded-2xl bg-cyan-500 text-white font-black text-xl hover:bg-cyan-400 transition-all shadow-xl shadow-cyan-500/20 active:scale-95 text-center">
+                  Join Now - It&apos;s Free
                 </Link>
-                <button
-                  onClick={() => setShowSalesModal(true)}
-                  className="px-12 py-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md font-bold text-xl hover:bg-white/10 transition-all active:scale-95"
+                <Link
+                  href="/sales"
+                  className="px-12 py-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md font-bold text-xl hover:bg-white/10 transition-all active:scale-95 text-center"
                 >
                   Talk to Sales
-                </button>
+                </Link>
               </div>
             </div>
           </GlassCard>

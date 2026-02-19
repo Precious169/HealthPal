@@ -11,6 +11,7 @@ export default function Dashboard() {
     const router = useRouter();
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
         // Check authentication
@@ -41,11 +42,12 @@ export default function Dashboard() {
 
     return (
         <div className="flex h-screen bg-slate-900 overflow-hidden">
-            <Sidebar />
+            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <AppHeader
                     title={`Welcome back, ${user?.name || 'Precious'}!`}
                     subtitle="Here's what's happening with your health today."
+                    onMenuClick={() => setIsSidebarOpen(true)}
                 />
                 <main className="flex-1 overflow-y-auto p-8 relative scroll-smooth">
                     {/* Animated Background */}
