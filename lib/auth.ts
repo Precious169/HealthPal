@@ -112,10 +112,10 @@ function generateId(): string {
 }
 
 // Mock login validation
-export function validateLogin(email: string, password: string): boolean {
-    // For demo purposes, accept any email/password combination
+export function validateLogin(username: string, password: string): boolean {
+    // For demo purposes, accept any username/password combination
     // In production, this would call an API
-    return email.includes('@') && password.length >= 6;
+    return username.length >= 3 && password.length >= 6;
 }
 
 // Mock signup validation

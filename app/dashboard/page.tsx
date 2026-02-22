@@ -57,15 +57,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="max-w-7xl mx-auto relative z-10">
-                        <div className="flex justify-end items-start mb-6">
-                            <button
-                                onClick={handleLogout}
-                                className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all text-sm font-bold"
-                            >
-                                <span className="material-symbols-outlined !text-lg">logout</span>
-                                Logout
-                            </button>
-                        </div>
+                        {/* Logout button removed as per requirements */}
 
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                             {/* Left Column (Main Stats) */}
@@ -90,7 +82,7 @@ export default function Dashboard() {
                                         </Link>
                                     </div>
                                 ) : (
-                                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+                                    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center shadow-sm">
                                         <div className="flex items-center gap-5">
                                             <div className="size-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-slate-500 shadow-sm">
                                                 <span className="material-symbols-outlined !text-3xl">videocam_off</span>
@@ -100,9 +92,6 @@ export default function Dashboard() {
                                                 <p className="text-slate-500">Stay on top of your health journey.</p>
                                             </div>
                                         </div>
-                                        <Link href="/telemedicine" className="bg-white/10 text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-white/20 transition-all border border-white/10">
-                                            Book Now
-                                        </Link>
                                     </div>
                                 )}
 

@@ -9,19 +9,20 @@ import { initializeSampleData } from '@/lib/healthData';
 
 export default function LoginPage() {
     const router = useRouter();
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+    const [errors, setErrors] = useState<{ username?: string; password?: string }>({});
     const [isLoading, setIsLoading] = useState(false);
+    const [forgotPasswordSent, setForgotPasswordSent] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setErrors({});
 
         // Validation
-        const newErrors: { email?: string; password?: string } = {};
-        if (!email.includes('@')) {
-            newErrors.email = 'Please enter a valid email address';
+        const newErrors: { username?: string; password?: string } = {};
+        if (username.length < 3) {
+            newErrors.username = 'Username must be at least 3 characters';
         }
         if (password.length < 6) {
             newErrors.password = 'Password must be at least 6 characters';
@@ -36,7 +37,7 @@ export default function LoginPage() {
 
         // Simulate API call
         setTimeout(() => {
-            if (validateLogin(email, password)) {
+            if (validateLogin(username, password)) {
                 // Clear any existing session data first to ensure clean state
                 sessionStorage.clear();
 
@@ -44,8 +45,8 @@ export default function LoginPage() {
                 initializeSampleData(true);
 
                 saveUser({
-                    email,
-                    name: email.split('@')[0], // Use email prefix as name
+                    email: `${username}@example.com`, // dummy email since we use username
+                    name: username,
                     onboarding: { completed: true }, // Assume returning users completed onboarding
                     isDemo: true,
                 });
@@ -88,13 +89,13 @@ export default function LoginPage() {
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <FormInput
-                                label="Email Address"
-                                type="email"
-                                placeholder="you@example.com"
-                                value={email}
-                                onChange={setEmail}
-                                error={errors.email}
-                                icon="mail"
+                                label="Username"
+                                type="text"
+                                placeholder="e.g. johndoe"
+                                value={username}
+                                onChange={setUsername}
+                                error={errors.username}
+                                icon="person"
                                 required
                             />
 
@@ -118,9 +119,23 @@ export default function LoginPage() {
                                     />
                                     Remember me
                                 </label>
-                                <Link href="#" className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
-                                    Forgot password?
-                                </Link>
+                                <div className="flex flex-col items-end relative">
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setForgotPasswordSent(true);
+                                            setTimeout(() => setForgotPasswordSent(false), 3000);
+                                        }}
+                                        className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+                                    >
+                                        Forgot password?
+                                    </button>
+                                    {forgotPasswordSent && (
+                                        <div className="absolute top-full mt-2 right-0 bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded border border-emerald-500/20 whitespace-nowrap animate-in fade-in slide-in-from-top-1">
+                                            Password reset link sent!
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
                             {/* Submit Button */}

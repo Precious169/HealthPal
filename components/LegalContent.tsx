@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { GlassCard } from '@/components/ui/GlassCard';
 
@@ -7,6 +8,10 @@ export default function LegalPage({ title, lastUpdated, sections }: { title: str
     return (
         <div className="min-h-screen bg-[#0a192f] p-6 text-white font-display">
             <div className="max-w-4xl mx-auto">
+                <Link href="/" className="inline-flex items-center gap-2 text-white/50 hover:text-cyan-400 transition-colors mb-8 group">
+                    <span className="material-symbols-outlined !text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Back to Home
+                </Link>
                 <PageHeader
                     title={title}
                     subtitle={`Last updated: ${lastUpdated}`}

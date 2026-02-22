@@ -8,6 +8,10 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen bg-[#0a192f] p-6 text-white font-display">
             <div className="max-w-7xl mx-auto">
+                <Link href="/" className="inline-flex items-center gap-2 text-white/50 hover:text-cyan-400 transition-colors mb-8 group">
+                    <span className="material-symbols-outlined !text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Back to Home
+                </Link>
                 <PageHeader
                     title="About HealthPal"
                     subtitle="Empowering humanity through intelligent healthcare technology"
