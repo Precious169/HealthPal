@@ -143,7 +143,12 @@ export function deleteMedication(id: string): void {
 export function getLabResults(): LabResult[] {
     if (typeof window === 'undefined') return [];
     const data = sessionStorage.getItem(LAB_RESULTS_KEY);
-    return data ? JSON.parse(data) : [];
+    try {
+        return data ? JSON.parse(data) : [];
+    } catch (e) {
+        console.error("Error parsing lab results:", e);
+        return [];
+    }
 }
 
 export function saveLabResult(result: Omit<LabResult, 'id'>): LabResult {

@@ -25,6 +25,8 @@
   --font-display: var(--font-inter);
   --font-heading: var(--font-poppins);
 
+  --breakpoint-xs: 475px;
+
   --animate-spotlight: spotlight 2s ease .75s 1 forwards;
   --animate-medical-scan: medical-scan 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { StepIndicator } from '@/components/auth/StepIndicator';
-import { saveOnboardingData, getUser } from '@/lib/auth';
+import { saveOnboardingData, getUser, logout } from '@/lib/auth';
 
 export default function OnboardingPage() {
     const router = useRouter();
@@ -137,8 +137,8 @@ export default function OnboardingPage() {
                                             type="button"
                                             onClick={() => toggleGoal(goal.id)}
                                             className={`p-6 rounded-xl border transition-all text-left ${goals.includes(goal.id)
-                                                    ? 'bg-gradient-to-r from-cyan-400 to-blue-600 border-transparent shadow-lg shadow-cyan-500/30'
-                                                    : 'bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20'
+                                                ? 'bg-gradient-to-r from-cyan-400 to-blue-600 border-transparent shadow-lg shadow-cyan-500/30'
+                                                : 'bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20'
                                                 }`}
                                         >
                                             <div className="flex items-center gap-4">
