@@ -3,11 +3,15 @@
 import { useState, useEffect } from "react";
 import Sidebar from "@/components/Sidebar";
 import AppHeader from "@/components/AppHeader";
-import { getUser } from "@/lib/auth";
+import { getUser, type User } from "@/lib/auth";
 
 export default function SettingsPage() {
-    const [user, setUser] = useState(getUser());
+    const [user, setUser] = useState<User | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    useEffect(() => {
+        setUser(getUser());
+    }, []);
 
     if (!user) {
         return (

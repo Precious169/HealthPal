@@ -119,8 +119,8 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSB0J9CrQZ94WD4udUbheAMiP_TBhvPhvOR6wLbPgcwcwdF-3l6bex19ArGyp-IT4eCqoALh4K8F38g21n0aunrd0CxBu5gSpzUIn4TvW1trNc0w2vMPEapMd5x6GOoj4CEl_NYk40hFnnxNSWE_t8_Mzp7dh-5sNX8447IYdqSa_xfUdUOEWNiG1M_Z6Fz51QZ-2mTuqtOwTCDo3Uxeo7Vf8pIPH5s9--n1slj-i2zpSlUGyTt6ynRomIUhEG0I-YjrrvT71W28Q"
                         />
                         <div className="flex flex-col min-w-0">
-                            <span className="text-sm font-semibold truncate">{user?.name || "Alex Johnson"}</span>
-                            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Patient ID: {user?.id?.split('_')[1] || "#8821"}</span>
+                            <span className="text-sm font-semibold truncate">{user?.name || "User"}</span>
+                            <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Patient ID: {user?.id?.split('_')?.at(-1) || "GUEST"}</span>
                         </div>
                     </div>
                 </div>

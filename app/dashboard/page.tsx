@@ -45,7 +45,7 @@ export default function Dashboard() {
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <AppHeader
-                    title={`Welcome back, ${user?.name || 'Precious'}!`}
+                    title={`Welcome back, ${user?.name || 'User'}!`}
                     subtitle="Here's what's happening with your health today."
                     onMenuClick={() => setIsSidebarOpen(true)}
                     showBook={true}
