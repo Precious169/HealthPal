@@ -11,7 +11,7 @@
   --background-dark: #0f2023;
 }
 
-@theme inline {
+@theme {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-navy-dark: var(--navy-dark);
@@ -21,6 +21,21 @@
   --font-sans: var(--font-inter);
   --font-display: var(--font-inter);
   --font-heading: var(--font-poppins);
+
+  --animate-spotlight: spotlight 2s ease .75s 1 forwards;
+  --animate-medical-scan: medical-scan 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -124,7 +139,7 @@ body {
   }
 
   100% {
-    transform: translateY(350%);
+    transform: translateY(450%);
     opacity: 0;
   }
 }

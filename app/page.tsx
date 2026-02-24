@@ -235,7 +235,7 @@ export default function Home() {
               </div>
 
               {/* Floating Medical Cards */}
-              <div className="absolute top-[15%] left-[5%] md:left-[10%] animate-float opacity-40 md:opacity-100 z-20" style={{ animationDelay: '0s' }}>
+              <div className="absolute top-[15%] left-[5%] md:left-[10%] animate-float opacity-30 md:opacity-60 z-0" style={{ animationDelay: '0s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[-5deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-cyan-400 !text-sm">monitoring</span>
@@ -244,7 +244,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[20%] left-[10%] md:left-[15%] animate-float opacity-40 md:opacity-100 z-20" style={{ animationDelay: '1.5s' }}>
+              <div className="absolute bottom-[20%] left-[8%] md:left-[20%] animate-float opacity-30 md:opacity-60 z-0" style={{ animationDelay: '4s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[3deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-emerald-400 !text-sm">verified_user</span>
@@ -253,7 +253,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute top-[25%] right-[5%] md:right-[10%] animate-float opacity-40 md:opacity-100 z-20" style={{ animationDelay: '0.8s' }}>
+              <div className="absolute top-[25%] right-[5%] md:right-[15%] animate-float opacity-30 md:opacity-60 z-0" style={{ animationDelay: '2s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[5deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-purple-400 !text-sm">biotech</span>
@@ -262,7 +262,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[15%] right-[10%] md:right-[15%] animate-float opacity-40 md:opacity-100 z-20" style={{ animationDelay: '2.2s' }}>
+              <div className="absolute bottom-[10%] right-[10%] md:right-[25%] animate-float opacity-30 md:opacity-60 z-0" style={{ animationDelay: '1s' }}>
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-2xl rotate-[-2deg]">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-blue-400 !text-sm">settings_input_antenna</span>

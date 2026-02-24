@@ -78,7 +78,7 @@ export default function MedicationPage() {
         <div className="flex h-screen bg-slate-900 overflow-hidden">
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader onMenuClick={() => setIsSidebarOpen(true)} />
+                <AppHeader title="Medication Tracker" onMenuClick={() => setIsSidebarOpen(true)} />
                 <main className="flex-1 overflow-y-auto p-6 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -88,8 +88,6 @@ export default function MedicationPage() {
 
                     <div className="max-w-5xl mx-auto relative z-10">
                         <PageHeader
-                            title="Medication Tracker"
-                            subtitle="Never miss a dose with smart reminders and adherence tracking"
                             breadcrumbs={[
                                 { label: 'Dashboard', href: '/dashboard' },
                                 { label: 'Medication', href: '/medication' },

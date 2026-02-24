@@ -99,26 +99,17 @@ export default function LoginPage() {
                                 required
                             />
 
-                            <FormInput
-                                label="Password"
-                                type="password"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={setPassword}
-                                error={errors.password}
-                                icon="lock"
-                                required
-                            />
-
-                            {/* Remember Me & Forgot Password */}
-                            <div className="flex items-center justify-between text-sm">
-                                <label className="flex items-center gap-2 text-white/80 cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        className="w-4 h-4 rounded border-white/20 bg-white/10 text-cyan-400 focus:ring-cyan-400/20"
-                                    />
-                                    Remember me
-                                </label>
+                            <div className="space-y-1">
+                                <FormInput
+                                    label="Password"
+                                    type="password"
+                                    placeholder="••••••••"
+                                    value={password}
+                                    onChange={setPassword}
+                                    error={errors.password}
+                                    icon="lock"
+                                    required
+                                />
                                 <div className="flex flex-col items-end relative">
                                     <button
                                         type="button"
@@ -126,12 +117,12 @@ export default function LoginPage() {
                                             setForgotPasswordSent(true);
                                             setTimeout(() => setForgotPasswordSent(false), 3000);
                                         }}
-                                        className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors"
+                                        className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors text-sm"
                                     >
                                         Forgot password?
                                     </button>
                                     {forgotPasswordSent && (
-                                        <div className="absolute top-full mt-2 right-0 bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded border border-emerald-500/20 whitespace-nowrap animate-in fade-in slide-in-from-top-1">
+                                        <div className="absolute top-full mt-2 right-0 bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded border border-emerald-500/20 whitespace-nowrap animate-in fade-in slide-in-from-top-1 z-10">
                                             Password reset link sent!
                                         </div>
                                     )}

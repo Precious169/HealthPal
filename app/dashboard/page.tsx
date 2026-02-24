@@ -48,6 +48,7 @@ export default function Dashboard() {
                     title={`Welcome back, ${user?.name || 'Precious'}!`}
                     subtitle="Here's what's happening with your health today."
                     onMenuClick={() => setIsSidebarOpen(true)}
+                    showBook={true}
                 />
                 <main className="flex-1 overflow-y-auto p-8 relative scroll-smooth">
                     {/* Animated Background */}

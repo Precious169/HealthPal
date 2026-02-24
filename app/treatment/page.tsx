@@ -42,8 +42,6 @@ export default function TreatmentPage() {
 
                     <div className="max-w-7xl mx-auto relative z-10">
                         <PageHeader
-                            title="Treatment Plans"
-                            subtitle="Manage and track your recovery progress with AI insights"
                             breadcrumbs={[
                                 { label: "Dashboard", href: "/dashboard" },
                                 { label: "Treatment", href: "/treatment" },

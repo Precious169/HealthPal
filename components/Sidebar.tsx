@@ -101,13 +101,15 @@ export default function Sidebar({ isOpen, onClose }: { isOpen?: boolean; onClose
                                 </Link>
                             );
                         })}
-                        <button
-                            onClick={handleLogout}
-                            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20 transition-colors text-left"
-                        >
-                            <span className="material-symbols-outlined">logout</span>
-                            <span className="text-sm font-medium">Log Out</span>
-                        </button>
+                        {pathname !== '/dashboard' && (
+                            <button
+                                onClick={handleLogout}
+                                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-red-50 hover:text-red-500 dark:hover:bg-red-900/20 transition-colors text-left"
+                            >
+                                <span className="material-symbols-outlined">logout</span>
+                                <span className="text-sm font-medium">Log Out</span>
+                            </button>
+                        )}
                     </div>
                 </div>
 

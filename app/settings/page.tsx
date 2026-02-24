@@ -30,12 +30,6 @@ export default function SettingsPage() {
                     </div>
 
                     <div className="max-w-4xl mx-auto relative z-10">
-                        {/* Page Title */}
-                        <header className="mb-10">
-                            <h1 className="text-4xl font-bold font-heading tracking-tight text-white">Settings</h1>
-                            <p className="text-slate-400 mt-2">Manage your account preferences and security settings.</p>
-                        </header>
-
                         <div className="space-y-8 pb-12">
                             {/* Profile Information Section */}
                             <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
