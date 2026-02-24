@@ -15,7 +15,7 @@ export default function AppHeader({ title, subtitle, onMenuClick, showBook = fal
                     </button>
                 )}
                 {title && (
-                    <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight font-heading truncate max-w-[180px] xs:max-w-[220px] md:max-w-none">
+                    <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight font-heading">
                         {title}
                     </h1>
                 )}
