@@ -88,8 +88,8 @@ export default function LabResultsPage() {
         <div className="flex h-screen bg-slate-900 overflow-hidden">
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader onMenuClick={() => setIsSidebarOpen(true)} />
-                <main className="flex-1 overflow-y-auto p-6 relative">
+                <AppHeader title="Lab Results" onMenuClick={() => setIsSidebarOpen(true)} />
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/5 rounded-full blur-[100px]" />
@@ -130,7 +130,7 @@ export default function LabResultsPage() {
                         ) : (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {results.map((result) => (
-                                    <GlassCard key={result.id} className="p-6 border-white/10 hover:border-cyan-500/30 transition-all group" hover>
+                                    <GlassCard key={result.id} className="p-5 md:p-6 border-white/10 hover:border-cyan-500/30 transition-all group" hover>
                                         <div className="flex justify-between items-start mb-6">
                                             <div className="bg-white/5 p-3 rounded-2xl group-hover:scale-110 transition-transform">
                                                 <span className="material-symbols-outlined text-cyan-400 !text-3xl">science</span>

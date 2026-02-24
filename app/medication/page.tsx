@@ -79,7 +79,7 @@ export default function MedicationPage() {
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <AppHeader title="Medication Tracker" onMenuClick={() => setIsSidebarOpen(true)} />
-                <main className="flex-1 overflow-y-auto p-6 relative">
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/5 rounded-full blur-[100px]" />
@@ -116,11 +116,11 @@ export default function MedicationPage() {
                                 />
                             </GlassCard>
                         ) : (
-                            <div className="grid grid-cols-1 gap-4">
+                            <div className="grid grid-cols-1 gap-5">
                                 {medications.map((med) => {
                                     const todayDoses = getTodayDoses(med);
                                     return (
-                                        <GlassCard key={med.id} className="p-6" hover>
+                                        <GlassCard key={med.id} className="p-4 md:p-6" hover>
                                             <div className="flex items-start gap-4">
                                                 <div className="size-14 bg-gradient-to-br from-orange-400 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
                                                     <span className="material-symbols-outlined text-white !text-2xl">pill</span>

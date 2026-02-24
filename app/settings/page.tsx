@@ -21,8 +21,8 @@ export default function SettingsPage() {
         <div className="flex h-screen bg-slate-900 overflow-hidden">
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-                <AppHeader onMenuClick={() => setIsSidebarOpen(true)} />
-                <main className="flex-1 overflow-y-auto p-8 relative">
+                <AppHeader title="Settings" onMenuClick={() => setIsSidebarOpen(true)} />
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/5 rounded-full blur-[100px]" />
@@ -32,13 +32,13 @@ export default function SettingsPage() {
                     <div className="max-w-4xl mx-auto relative z-10">
                         <div className="space-y-8 pb-12">
                             {/* Profile Information Section */}
-                            <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                            <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 md:p-8 relative overflow-hidden group">
                                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
                                 <h2 className="text-xl font-bold mb-8 flex items-center gap-2 relative z-10">
                                     <span className="material-symbols-outlined text-cyan-400">person</span>
                                     Profile Information
                                 </h2>
-                                <div className="flex flex-col md:flex-row gap-10 items-start mb-10 pb-8 border-b border-white/5 relative z-10">
+                                <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start mb-10 pb-8 border-b border-white/5 relative z-10">
                                     <div className="relative group shrink-0">
                                         <div className="size-28 rounded-2xl bg-white/5 overflow-hidden bg-cover bg-center border-4 border-white/10 shadow-md"
                                             style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIRc_8Gz0V8joMJCGtum9ICtCdNma-b9N7Zn9ZDMlcb_jN9bE40YVzQSHChr4tfS1dB0b3IWMAYBJGtGhC44lXb33K2CLZO6yTvCeBtbVzX9Fsj0dU8UVpXo6FPt8s1ErPhZlq1os4_Aa-16UW0sESpwZUDFSsHn5HqA6sFurcUBtxyIg9Sw_fZgS_PKOspdH3xQ3-LDKQ5gf89Mi7TO72zYMljv94-r-cUNKGQOWo3BDFGUAj1cEifa4xCmBuKLP5IIB9PvDqCU0')" }}></div>
@@ -64,7 +64,7 @@ export default function SettingsPage() {
                             </section>
 
                             {/* Security Section */}
-                            <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                            <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 md:p-8 relative overflow-hidden group">
                                 <h2 className="text-xl font-bold mb-8 flex items-center gap-2">
                                     <span className="material-symbols-outlined text-cyan-400">security</span>
                                     Security & Privacy
@@ -88,7 +88,7 @@ export default function SettingsPage() {
                             </section>
 
                             {/* Notifications Section */}
-                            <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+                            <section className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 md:p-8">
                                 <h2 className="text-xl font-bold mb-8 flex items-center gap-2">
                                     <span className="material-symbols-outlined text-cyan-400">notifications</span>
                                     Notifications

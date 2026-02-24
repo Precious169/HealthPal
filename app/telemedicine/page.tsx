@@ -114,7 +114,7 @@ export default function TelemedicinePage() {
             <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
                 <AppHeader title="Telemedicine" onMenuClick={() => setIsSidebarOpen(true)} />
-                <main className="flex-1 overflow-y-auto p-6 relative">
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 relative">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/5 rounded-full blur-[100px]" />
@@ -133,9 +133,9 @@ export default function TelemedicinePage() {
                         {upcomingAppointments.length > 0 && (
                             <div className="mb-8">
                                 <h2 className="text-2xl font-bold text-white mb-4">Upcoming Appointments</h2>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {upcomingAppointments.map((apt) => (
-                                        <GlassCard key={apt.id} className="p-6">
+                                        <GlassCard key={apt.id} className="p-5 md:p-6">
                                             <div className="flex items-center gap-4">
                                                 <div className="size-16 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full flex items-center justify-center text-white">
                                                     <span className="material-symbols-outlined !text-3xl">videocam</span>
@@ -178,9 +178,9 @@ export default function TelemedicinePage() {
 
                         {/* Doctors Grid */}
                         <h2 className="text-2xl font-bold text-white mb-4">Available Doctors</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
                             {filteredDoctors.map((doctor) => (
-                                <GlassCard key={doctor.name} className="p-6" hover>
+                                <GlassCard key={doctor.name} className="p-5 md:p-8" hover>
                                     <div className="flex flex-col items-center text-center">
                                         <div className="size-24 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full flex items-center justify-center mb-4">
                                             <span className="material-symbols-outlined text-cyan-400 !text-5xl">person</span>

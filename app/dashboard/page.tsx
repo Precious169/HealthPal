@@ -50,7 +50,7 @@ export default function Dashboard() {
                     onMenuClick={() => setIsSidebarOpen(true)}
                     showBook={true}
                 />
-                <main className="flex-1 overflow-y-auto p-8 relative scroll-smooth">
+                <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 relative scroll-smooth">
                     {/* Animated Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none">
                         <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-400/5 rounded-full blur-[100px]" />
@@ -97,7 +97,7 @@ export default function Dashboard() {
                                 )}
 
                                 {/* Vital Signs Grid */}
-                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
                                     <VitalCard label="Heart Rate" value={user?.isDemo ? "72" : "--"} unit="bpm" icon="favorite" color="text-red-500" />
                                     <VitalCard label="Blood Pressure" value={user?.isDemo ? "120/80" : "--"} unit="mmHg" icon="blood_pressure" color="text-cyan-400" />
                                     <VitalCard label="Sleep" value={user?.isDemo ? "7.5" : "0"} unit="hrs" icon="bedtime" color="text-indigo-500" />
@@ -105,7 +105,7 @@ export default function Dashboard() {
                                 </div>
 
                                 {/* Health Records Preview */}
-                                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-sm">
+                                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 md:p-8 shadow-sm">
                                     <div className="flex justify-between items-center mb-6">
                                         <h3 className="text-xl font-bold text-white">Recent Health Records</h3>
                                         <Link href="/records" className="text-cyan-400 text-sm font-bold hover:underline">View All</Link>
@@ -200,7 +200,7 @@ export default function Dashboard() {
 
 function VitalCard({ label, value, unit, icon, color }: { label: string; value: string; unit: string; icon: string; color: string }) {
     return (
-        <div className="bg-white/5 border border-white/10 p-4 rounded-2xl shadow-sm">
+        <div className="bg-white/5 border border-white/10 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-sm">
             <div className={`size-10 ${color.replace('text-', 'bg-').replace('400', '400/10').replace('500', '500/10')} ${color} rounded-lg flex items-center justify-center mb-4`}>
                 <span className="material-symbols-outlined">{icon}</span>
             </div>

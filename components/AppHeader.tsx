@@ -5,19 +5,19 @@ import Link from "next/link";
 export default function AppHeader({ title, subtitle, onMenuClick, showBook = false }: { title?: string; subtitle?: string; onMenuClick?: () => void; showBook?: boolean }) {
     return (
         <header className="flex justify-between items-center mb-4 md:mb-6 px-4 md:px-0 pt-4 md:pt-0">
-            <div className="flex items-center gap-3">
-                {title && (
-                    <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight font-heading truncate max-w-[200px] md:max-w-none">
-                        {title}
-                    </h1>
-                )}
+            <div className="flex items-center gap-2 md:gap-3">
                 {onMenuClick && (
                     <button
                         onClick={onMenuClick}
-                        className="md:hidden size-9 flex items-center justify-center bg-white/5 border border-white/10 rounded-lg text-white hover:bg-white/10 transition-all shadow-sm"
+                        className="md:hidden size-9 flex items-center justify-center bg-white/5 border border-white/10 rounded-lg text-white hover:bg-white/10 transition-all shadow-sm flex-shrink-0"
                     >
                         <span className="material-symbols-outlined !text-xl">menu</span>
                     </button>
+                )}
+                {title && (
+                    <h1 className="text-xl md:text-2xl font-bold text-white tracking-tight font-heading truncate max-w-[180px] xs:max-w-[220px] md:max-w-none">
+                        {title}
+                    </h1>
                 )}
             </div>
 

@@ -37,8 +37,12 @@ const doctors = [
 
 export default function DoctorsPage() {
     return (
-        <div className="min-h-screen bg-[#0a192f] p-6 text-white font-display">
+        <div className="min-h-screen bg-[#0a192f] p-4 sm:p-6 md:p-8 text-white font-display">
             <div className="max-w-7xl mx-auto">
+                <Link href="/" className="inline-flex items-center gap-2 text-white/50 hover:text-cyan-400 transition-colors mb-8 group">
+                    <span className="material-symbols-outlined !text-lg group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                    Back to Home
+                </Link>
                 <PageHeader
                     title="Our Medical Experts"
                     subtitle="World-class specialists dedicated to your digital healthcare journey"
@@ -59,7 +63,7 @@ export default function DoctorsPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-transparent"></div>
                             </div>
-                            <div className="p-6">
+                            <div className="p-5 md:p-6">
                                 <div className="mb-4">
                                     <h3 className="text-xl font-bold">{doc.name}</h3>
                                     <p className="text-cyan-400 text-xs font-black uppercase tracking-widest">{doc.specialty}</p>
