@@ -1,4 +1,7 @@
 @import "tailwindcss";
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 /* stylelint-disable at-rule-no-unknown */
 /* CSS Language Server: ignore unknown at-rules */
 

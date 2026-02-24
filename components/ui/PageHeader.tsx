@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 interface PageHeaderProps {
-    title: string;
+    title?: string;
     subtitle?: string;
     breadcrumbs?: { label: string; href: string }[];
     action?: React.ReactNode;
