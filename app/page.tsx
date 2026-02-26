@@ -235,38 +235,38 @@ export default function Home() {
               </div>
 
               {/* Floating Medical Cards */}
-              <div className="absolute top-[10%] left-[5%] md:left-[10%] animate-float opacity-40 md:opacity-80 z-[-1]" style={{ animationDelay: '0s' }}>
-                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-3 rounded-2xl rotate-[-5deg]">
+              <div className="absolute top-[5%] left-[2%] md:top-[10%] md:left-[10%] animate-float opacity-40 md:opacity-80 z-[-1] transition-all duration-700 group-hover:scale-110" style={{ animationDelay: '0s' }}>
+                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-2 md:p-3 rounded-2xl rotate-[-5deg] shadow-lg shadow-cyan-500/10">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-cyan-400 !text-sm">monitoring</span>
-                    <span className="text-[10px] font-bold tracking-tight text-white/70">VITALS_SYNC</span>
+                    <span className="material-symbols-outlined text-cyan-400 !text-[10px] md:!text-sm">monitoring</span>
+                    <span className="text-[8px] md:text-[10px] font-bold tracking-tight text-white/70 uppercase">Vitals Sync</span>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute bottom-[15%] left-[5%] md:left-[15%] animate-float opacity-40 md:opacity-80 z-[-1]" style={{ animationDelay: '4s' }}>
-                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-3 rounded-2xl rotate-[3deg]">
+              <div className="absolute bottom-[8%] left-[2%] md:bottom-[15%] md:left-[15%] animate-float opacity-40 md:opacity-80 z-[-1] transition-all duration-700 group-hover:scale-110" style={{ animationDelay: '4s' }}>
+                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-2 md:p-3 rounded-2xl rotate-[3deg] shadow-lg shadow-emerald-500/10">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-emerald-400 !text-sm">verified_user</span>
-                    <span className="text-[10px] font-bold tracking-tight text-white/70">SECURE_HSYNC</span>
+                    <span className="material-symbols-outlined text-emerald-400 !text-[10px] md:!text-sm">verified_user</span>
+                    <span className="text-[8px] md:text-[10px] font-bold tracking-tight text-white/70 uppercase">Secure Hsync</span>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute top-[15%] right-[5%] md:right-[15%] animate-float opacity-40 md:opacity-80 z-[-1]" style={{ animationDelay: '2s' }}>
-                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-3 rounded-2xl rotate-[5deg]">
+              <div className="absolute top-[10%] right-[2%] md:top-[15%] md:right-[15%] animate-float opacity-40 md:opacity-80 z-[-1] transition-all duration-700 group-hover:scale-110" style={{ animationDelay: '2s' }}>
+                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-2 md:p-3 rounded-2xl rotate-[5deg] shadow-lg shadow-purple-500/10">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-purple-400 !text-sm">biotech</span>
-                    <span className="text-[10px] font-bold tracking-tight text-white/70">LAB_ANALYSIS</span>
+                    <span className="material-symbols-outlined text-purple-400 !text-[10px] md:!text-sm">biotech</span>
+                    <span className="text-[8px] md:text-[10px] font-bold tracking-tight text-white/70 uppercase">Lab Analysis</span>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute bottom-[20%] right-[5%] md:right-[20%] animate-float opacity-40 md:opacity-80 z-[-1]" style={{ animationDelay: '1s' }}>
-                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-3 rounded-2xl rotate-[-2deg]">
+              <div className="absolute bottom-[12%] right-[2%] md:bottom-[20%] md:right-[20%] animate-float opacity-40 md:opacity-80 z-[-1] transition-all duration-700 group-hover:scale-110" style={{ animationDelay: '1s' }}>
+                <div className="bg-white/5 backdrop-blur-2xl border border-white/10 p-2 md:p-3 rounded-2xl rotate-[-2deg] shadow-lg shadow-blue-500/10">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-blue-400 !text-sm">settings_input_antenna</span>
-                    <span className="text-[10px] font-bold tracking-tight text-white/70">PROTOCOL_V3.2</span>
+                    <span className="material-symbols-outlined text-blue-400 !text-[10px] md:!text-sm">settings_input_antenna</span>
+                    <span className="text-[8px] md:text-[10px] font-bold tracking-tight text-white/70 uppercase">Protocol V3.2</span>
                   </div>
                 </div>
               </div>
