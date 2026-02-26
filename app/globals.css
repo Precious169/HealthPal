@@ -2,9 +2,6 @@
 /* @tailwind base; */
 /* @tailwind components; */
 /* @tailwind utilities; */
-/* stylelint-disable at-rule-no-unknown */
-/* CSS Language Server: ignore unknown at-rules */
-/* vscode-css-languageserver: ignore unknown at-rules */
 
 :root {
   --background: #f5f8f8;
