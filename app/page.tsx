@@ -97,18 +97,18 @@ export default function Home() {
         <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#05b7d6" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 gap-4 md:gap-12 items-center min-h-[500px] md:min-h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="text-left animate-in fade-in slide-in-from-left duration-1000">
               <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8 backdrop-blur-md">
                 <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
                 <span className="text-xs font-bold uppercase tracking-widest text-white/80">AI-Powered Personalized Health</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold font-heading mb-6 md:mb-8 leading-[1.1]">
+              <h1 className="text-5xl md:text-7xl font-bold font-heading mb-8 leading-[1.1]">
                 Your Health, <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">Simplified.</span>
               </h1>
 
-              <p className="text-sm sm:text-lg md:text-xl text-white/60 mb-6 md:mb-10">
+              <p className="text-lg md:text-xl text-white/60 mb-10 max-w-xl">
                 The all-in-one platform for telemedicine, secure health records, and smart medication management. Professional clinical care at your fingertips.
               </p>
 
@@ -126,7 +126,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-full min-h-[300px] flex items-center justify-center animate-in fade-in zoom-in duration-1000 delay-300">
+            <div className="relative h-[400px] md:h-full flex items-center justify-center animate-in fade-in zoom-in duration-1000 delay-300 md:order-last">
               <div className="relative w-full h-full max-w-2xl flex items-center justify-center">
                 {/* Secondary Strand - Reverse Rotation */}
                 <img

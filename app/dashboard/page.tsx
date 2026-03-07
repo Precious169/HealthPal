@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Sidebar from "@/components/Sidebar";
 import AppHeader from "@/components/AppHeader";
 import Link from "next/link";
-import { getUser, logout, type User } from '@/lib/auth';
+import { getUser, logout, saveOnboardingData, type User } from '@/lib/auth';
 import { Modal } from "@/components/ui/Modal";
 
 export default function Dashboard() {
@@ -46,18 +46,14 @@ export default function Dashboard() {
                 [updateModal.type]: updateValue
             };
 
-            const updatedUser = {
-                ...user,
-                onboarding: {
-                    ...user.onboarding!,
-                    completed: true,
-                    vitals: updatedVitals
-                }
-            };
+            saveOnboardingData({ vitals: updatedVitals });
+            
+            // Get the updated user from storage to sync state
+            const updatedUser = getUser();
+            if (updatedUser) {
+                setUser(updatedUser);
+            }
 
-            // Save to session storage
-            sessionStorage.setItem('healthpal_user', JSON.stringify(updatedUser));
-            setUser(updatedUser);
             setIsUpdating(false);
             setUpdateModal({ ...updateModal, open: false });
             setUpdateValue('');
