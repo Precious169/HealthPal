@@ -17,19 +17,11 @@ export default function OnboardingPage() {
     const [medications, setMedications] = useState<Array<{ name: string; dosage: string; frequency: string }>>([]);
     const [newMed, setNewMed] = useState({ name: '', dosage: '', frequency: 'daily' });
 
-    // Step 4: Vitals
-    const [vitals, setVitals] = useState({
-        heartRate: '',
-        bloodPressure: '',
-        sleep: '',
-        steps: ''
-    });
-
     // Step 3: Preferences
     const [reminders, setReminders] = useState(true);
     const [healthTips, setHealthTips] = useState('weekly');
 
-    const steps = ['Health Goals', 'Medications', 'Preferences', 'Vitals'];
+    const steps = ['Health Goals', 'Medications', 'Preferences'];
 
     const healthGoals = [
         { id: 'weight', label: 'Weight Management', icon: 'monitor_weight' },
@@ -56,7 +48,7 @@ export default function OnboardingPage() {
     };
 
     const handleNext = () => {
-        if (currentStep < 4) {
+        if (currentStep < 3) {
             setCurrentStep(currentStep + 1);
         } else {
             handleComplete();
@@ -64,7 +56,7 @@ export default function OnboardingPage() {
     };
 
     const handleSkip = () => {
-        if (currentStep < 4) {
+        if (currentStep < 3) {
             setCurrentStep(currentStep + 1);
         } else {
             handleComplete();
@@ -90,7 +82,6 @@ export default function OnboardingPage() {
                     reminders,
                     healthTips,
                 },
-                vitals,
             });
 
             // Redirect to dashboard
@@ -129,7 +120,7 @@ export default function OnboardingPage() {
                         <p className="text-white/60 mb-8">Let's personalize your health journey</p>
 
                         {/* Step Indicator */}
-                        <StepIndicator currentStep={currentStep} totalSteps={4} steps={steps} />
+                        <StepIndicator currentStep={currentStep} totalSteps={3} steps={steps} />
 
                         {/* Step 1: Health Goals */}
                         {currentStep === 1 && (
@@ -238,73 +229,6 @@ export default function OnboardingPage() {
                             </div>
                         )}
 
-                        {/* Step 4: Vitals */}
-                        {currentStep === 4 && (
-                            <div className="space-y-6 animate-in fade-in slide-in-from-right duration-500">
-                                <div>
-                                    <h2 className="text-xl font-bold text-white mb-2">Initial Vitals</h2>
-                                    <p className="text-white/60 text-sm mb-6">Let's record your baseline health metrics</p>
-                                </div>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-white/70 ml-1">Heart Rate (bpm)</label>
-                                        <div className="relative group">
-                                            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-red-500/50 group-focus-within:text-red-500 transition-colors">favorite</span>
-                                            <input
-                                                type="text"
-                                                placeholder="e.g. 72"
-                                                value={vitals.heartRate}
-                                                onChange={(e) => setVitals({ ...vitals, heartRate: e.target.value })}
-                                                className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan-400/50 focus:ring-4 focus:ring-cyan-400/10 transition-all font-medium"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-white/70 ml-1">Blood Pressure (mmHg)</label>
-                                        <div className="relative group">
-                                            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-cyan-400/50 group-focus-within:text-cyan-400 transition-colors">vitals</span>
-                                            <input
-                                                type="text"
-                                                placeholder="e.g. 120/80"
-                                                value={vitals.bloodPressure}
-                                                onChange={(e) => setVitals({ ...vitals, bloodPressure: e.target.value })}
-                                                className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan-400/50 focus:ring-4 focus:ring-cyan-400/10 transition-all font-medium"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-white/70 ml-1">Sleep (hrs/night)</label>
-                                        <div className="relative group">
-                                            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-indigo-400/50 group-focus-within:text-indigo-400 transition-colors">bedtime</span>
-                                            <input
-                                                type="text"
-                                                placeholder="e.g. 7.5"
-                                                value={vitals.sleep}
-                                                onChange={(e) => setVitals({ ...vitals, sleep: e.target.value })}
-                                                className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan-400/50 focus:ring-4 focus:ring-cyan-400/10 transition-all font-medium"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-semibold text-white/70 ml-1">Daily Steps</label>
-                                        <div className="relative group">
-                                            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-emerald-400/50 group-focus-within:text-emerald-400 transition-colors">directions_walk</span>
-                                            <input
-                                                type="text"
-                                                placeholder="e.g. 8000"
-                                                value={vitals.steps}
-                                                onChange={(e) => setVitals({ ...vitals, steps: e.target.value })}
-                                                className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan-400/50 focus:ring-4 focus:ring-cyan-400/10 transition-all font-medium"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
 
                         {/* Navigation Buttons */}
                         <div className="flex gap-4 mt-8">
@@ -335,7 +259,7 @@ export default function OnboardingPage() {
                                         <span className="material-symbols-outlined animate-spin !text-xl">progress_activity</span>
                                         Completing...
                                     </span>
-                                ) : currentStep === 4 ? (
+                                ) : currentStep === 3 ? (
                                     'Complete Setup'
                                 ) : (
                                     'Continue'

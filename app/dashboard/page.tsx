@@ -132,7 +132,15 @@ export default function Dashboard() {
                                 )}
 
                                 {/* Vital Signs Grid */}
-                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
+                                <div className="space-y-4">
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                                            <span className="material-symbols-outlined text-cyan-400">monitoring</span>
+                                            Daily Health Check-in
+                                        </h3>
+                                        <p className="text-slate-500 text-xs font-medium uppercase tracking-widest">Update your vitals daily</p>
+                                    </div>
+                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
                                     <VitalCard
                                         label="Heart Rate"
                                         value={user?.onboarding?.vitals?.heartRate || (user?.isDemo ? "72" : "--")}
@@ -177,6 +185,7 @@ export default function Dashboard() {
                                             setUpdateValue(user?.onboarding?.vitals?.steps || '');
                                         }}
                                     />
+                                </div>
                                 </div>
 
                                 {/* Health Records Preview */}
