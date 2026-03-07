@@ -6,12 +6,16 @@ import Sidebar from "@/components/Sidebar";
 import AppHeader from "@/components/AppHeader";
 import Link from "next/link";
 import { getUser, logout, type User } from '@/lib/auth';
+import { Modal } from "@/components/ui/Modal";
 
 export default function Dashboard() {
     const router = useRouter();
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [updateModal, setUpdateModal] = useState({ open: false, type: '', label: '', unit: '' });
+    const [updateValue, setUpdateValue] = useState('');
+    const [isUpdating, setIsUpdating] = useState(false);
 
     useEffect(() => {
         // Check authentication
@@ -27,6 +31,37 @@ export default function Dashboard() {
     const handleLogout = () => {
         logout();
         router.push('/');
+    };
+
+    const handleUpdateVital = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!updateValue || !user) return;
+
+        setIsUpdating(true);
+        // Simulate API call
+        setTimeout(() => {
+            const currentVitals = user.onboarding?.vitals || {};
+            const updatedVitals = {
+                ...currentVitals,
+                [updateModal.type]: updateValue
+            };
+
+            const updatedUser = {
+                ...user,
+                onboarding: {
+                    ...user.onboarding!,
+                    completed: true,
+                    vitals: updatedVitals
+                }
+            };
+
+            // Save to session storage
+            sessionStorage.setItem('healthpal_user', JSON.stringify(updatedUser));
+            setUser(updatedUser);
+            setIsUpdating(false);
+            setUpdateModal({ ...updateModal, open: false });
+            setUpdateValue('');
+        }, 800);
     };
 
     if (isLoading) {
@@ -98,10 +133,50 @@ export default function Dashboard() {
 
                                 {/* Vital Signs Grid */}
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
-                                    <VitalCard label="Heart Rate" value={user?.isDemo ? "72" : "--"} unit="bpm" icon="favorite" color="text-red-500" />
-                                    <VitalCard label="Blood Pressure" value={user?.isDemo ? "120/80" : "--"} unit="mmHg" icon="blood_pressure" color="text-cyan-400" />
-                                    <VitalCard label="Sleep" value={user?.isDemo ? "7.5" : "0"} unit="hrs" icon="bedtime" color="text-indigo-500" />
-                                    <VitalCard label="Steps" value={user?.isDemo ? "8,432" : "0"} unit="steps" icon="directions_walk" color="text-emerald-500" />
+                                    <VitalCard
+                                        label="Heart Rate"
+                                        value={user?.onboarding?.vitals?.heartRate || (user?.isDemo ? "72" : "--")}
+                                        unit="bpm"
+                                        icon="favorite"
+                                        color="text-red-500"
+                                        onUpdate={() => {
+                                            setUpdateModal({ open: true, type: 'heartRate', label: 'Heart Rate', unit: 'bpm' });
+                                            setUpdateValue(user?.onboarding?.vitals?.heartRate || '');
+                                        }}
+                                    />
+                                    <VitalCard
+                                        label="Blood Pressure"
+                                        value={user?.onboarding?.vitals?.bloodPressure || (user?.isDemo ? "120/80" : "--")}
+                                        unit="mmHg"
+                                        icon="blood_pressure"
+                                        color="text-cyan-400"
+                                        onUpdate={() => {
+                                            setUpdateModal({ open: true, type: 'bloodPressure', label: 'Blood Pressure', unit: 'mmHg' });
+                                            setUpdateValue(user?.onboarding?.vitals?.bloodPressure || '');
+                                        }}
+                                    />
+                                    <VitalCard
+                                        label="Sleep"
+                                        value={user?.onboarding?.vitals?.sleep || (user?.isDemo ? "7.5" : "0")}
+                                        unit="hrs"
+                                        icon="bedtime"
+                                        color="text-indigo-500"
+                                        onUpdate={() => {
+                                            setUpdateModal({ open: true, type: 'sleep', label: 'Sleep', unit: 'hrs' });
+                                            setUpdateValue(user?.onboarding?.vitals?.sleep || '');
+                                        }}
+                                    />
+                                    <VitalCard
+                                        label="Steps"
+                                        value={user?.onboarding?.vitals?.steps || (user?.isDemo ? "8,432" : "0")}
+                                        unit="steps"
+                                        icon="directions_walk"
+                                        color="text-emerald-500"
+                                        onUpdate={() => {
+                                            setUpdateModal({ open: true, type: 'steps', label: 'Steps', unit: 'steps' });
+                                            setUpdateValue(user?.onboarding?.vitals?.steps || '');
+                                        }}
+                                    />
                                 </div>
 
                                 {/* Health Records Preview */}
@@ -155,9 +230,9 @@ export default function Dashboard() {
                                             </div>
                                         )}
                                     </div>
-                                    <button className="w-full mt-6 py-3 border-2 border-dashed border-white/10 rounded-xl text-slate-400 text-sm font-bold hover:border-cyan-500/50 hover:text-cyan-400 transition-all">
+                                    <Link href="/medication" className="w-full mt-6 py-3 border-2 border-dashed border-white/10 rounded-xl text-slate-400 text-sm font-bold hover:border-cyan-500/50 hover:text-cyan-400 transition-all flex items-center justify-center">
                                         + Add Medication
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 {user?.isDemo ? (
@@ -194,16 +269,63 @@ export default function Dashboard() {
                     </div>
                 </main>
             </div>
+
+            {/* Update Vital Modal */}
+            <Modal
+                isOpen={updateModal.open}
+                onClose={() => setUpdateModal({ ...updateModal, open: false })}
+                title={`Update ${updateModal.label}`}
+                size="sm"
+            >
+                <form onSubmit={handleUpdateVital} className="space-y-6">
+                    <div className="space-y-2">
+                        <label className="text-sm font-semibold text-white/70 ml-1">New Value ({updateModal.unit})</label>
+                        <input
+                            type="text"
+                            autoFocus
+                            placeholder={`Enter ${updateModal.label}...`}
+                            value={updateValue}
+                            onChange={(e) => setUpdateValue(e.target.value)}
+                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-cyan-400/50 focus:ring-4 focus:ring-cyan-400/10 transition-all"
+                        />
+                    </div>
+                    <div className="flex gap-4">
+                        <button
+                            type="button"
+                            onClick={() => setUpdateModal({ ...updateModal, open: false })}
+                            className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="submit"
+                            disabled={isUpdating || !updateValue}
+                            className="flex-1 bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-bold py-3 rounded-xl hover:shadow-lg hover:shadow-cyan-500/30 transition-all disabled:opacity-50"
+                        >
+                            {isUpdating ? 'Updating...' : 'Save Changes'}
+                        </button>
+                    </div>
+                </form>
+            </Modal>
         </div>
     );
 }
 
-function VitalCard({ label, value, unit, icon, color }: { label: string; value: string; unit: string; icon: string; color: string }) {
+function VitalCard({ label, value, unit, icon, color, onUpdate }: { label: string; value: string; unit: string; icon: string; color: string; onUpdate: () => void }) {
     return (
-        <div className="bg-white/5 border border-white/10 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-sm">
+        <div className="bg-white/5 border border-white/10 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-sm group hover:border-cyan-500/30 transition-all relative overflow-hidden">
             <div className={`size-10 ${color.replace('text-', 'bg-').replace('400', '400/10').replace('500', '500/10')} ${color} rounded-lg flex items-center justify-center mb-4`}>
                 <span className="material-symbols-outlined">{icon}</span>
             </div>
+            
+            <button 
+                onClick={onUpdate}
+                className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 size-8 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:text-cyan-400 hover:bg-white/20 transition-all"
+                title="Update"
+            >
+                <span className="material-symbols-outlined !text-lg">edit</span>
+            </button>
+
             <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">{label}</p>
             <div className="flex items-baseline gap-1 mt-1">
                 <span className="text-2xl font-bold tracking-tight text-white">{value}</span>

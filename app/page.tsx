@@ -112,21 +112,21 @@ export default function Home() {
                 The all-in-one platform for telemedicine, secure health records, and smart medication management. Professional clinical care at your fingertips.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <Link href="/signup" className="w-full sm:w-auto px-10 py-4 rounded-2xl bg-white text-[#0a192f] font-black text-lg hover:scale-105 transition-transform shadow-2xl shadow-cyan-500/10 text-center">
+              <div className="flex flex-col sm:flex-row gap-4 items-center mt-4">
+                <Link href="/signup" className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 rounded-2xl bg-white text-[#0a192f] font-black text-base md:text-lg hover:scale-105 transition-transform shadow-2xl shadow-cyan-500/10 text-center">
                   Start Your Profile
                 </Link>
                 <button
                   onClick={() => setShowDemoModal(true)}
-                  className="w-full sm:w-auto px-10 py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 font-bold text-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
+                  className="w-full sm:w-auto px-8 md:px-10 py-3.5 md:py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 font-bold text-base md:text-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
                 >
-                  <span className="material-symbols-outlined !text-2xl">play_circle</span>
+                  <span className="material-symbols-outlined !text-xl md:!text-2xl">play_circle</span>
                   Watch Demo
                 </button>
               </div>
             </div>
 
-            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center animate-in fade-in zoom-in duration-1000 delay-300 order-first lg:order-last">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center animate-in fade-in zoom-in duration-1000 delay-300 lg:order-last">
               <div className="relative w-full h-full max-w-2xl flex items-center justify-center">
                 {/* Secondary Strand - Reverse Rotation */}
                 <img
@@ -280,13 +280,13 @@ export default function Home() {
                 Join 50,000+ users who have transformed how they manage their health. HIPAA-compliant and secure.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/signup" className="px-12 py-5 rounded-2xl bg-cyan-500 text-white font-black text-xl hover:bg-cyan-400 transition-all shadow-xl shadow-cyan-500/20 active:scale-95 text-center">
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+                <Link href="/signup" className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 rounded-2xl bg-cyan-500 text-white font-black text-lg md:text-xl hover:bg-cyan-400 transition-all shadow-xl shadow-cyan-500/20 active:scale-95 text-center">
                   Join Now - It&apos;s Free
                 </Link>
                 <Link
                   href="/sales"
-                  className="px-12 py-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md font-bold text-xl hover:bg-white/10 transition-all active:scale-95 text-center"
+                  className="w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md font-bold text-lg md:text-xl hover:bg-white/10 transition-all active:scale-95 text-center"
                 >
                   Talk to Sales
                 </Link>
@@ -401,12 +401,12 @@ function PersonaCard({ image, role, benefit, color }: { image: string, role: str
 
 function FeatureCard({ icon, title, desc, link, color }: { icon: string, title: string, desc: string, link: string, color: string }) {
   return (
-    <GlassCard className="p-8 group hover:bg-white/10 transition-all border-white/5">
-      <div className={`${color} w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform`}>
-        <span className="material-symbols-outlined text-white !text-3xl">{icon}</span>
+    <GlassCard className="p-6 md:p-8 group hover:bg-white/10 transition-all border-white/5">
+      <div className={`${color} w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform`}>
+        <span className="material-symbols-outlined text-white !text-2xl md:!text-3xl">{icon}</span>
       </div>
-      <h3 className="text-xl font-bold mb-4">{title}</h3>
-      <p className="text-white/50 text-sm mb-8 leading-relaxed">{desc}</p>
+      <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">{title}</h3>
+      <p className="text-white/50 text-xs md:text-sm mb-6 md:mb-8 leading-relaxed">{desc}</p>
       <Link href={link} className="flex items-center gap-2 text-sm font-bold text-cyan-400 group-hover:gap-3 transition-all">
         Learn More
         <span className="material-symbols-outlined !text-sm">arrow_forward</span>

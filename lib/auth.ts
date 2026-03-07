@@ -14,6 +14,12 @@ export interface OnboardingData {
         reminders: boolean;
         healthTips: string;
     };
+    vitals?: {
+        heartRate?: string;
+        bloodPressure?: string;
+        sleep?: string;
+        steps?: string;
+    };
 }
 
 export interface User {
